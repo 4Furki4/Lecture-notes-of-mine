@@ -59,6 +59,7 @@
 - Redis çalışan container üzerinden redis CLI'a bağlanmak için:
 
   - `docker exec -it <containerId> redis-cli`
+  - `docker exec -it <containerId> redis-cli --row`: Türkçe karaketerlerin de desteklenmesini sağlar.
 
 ## Redis Veri Yapıları
 
