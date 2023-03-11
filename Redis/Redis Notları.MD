@@ -83,3 +83,29 @@
 - `MSETNX key1 value1 key2 value2 key3 value3` : key1'e value1, key2'e value2, key3'e value3 değerlerini atar. Ancak key1, key2, key3'e atanan değerlerin olmaması gerekir.
 - `APPEND key value` : key'e atanan değere value değerini ekler.
 - `STRLEN key` : key'e atanan değerin uzunluğunu döndürür.
+
+### List
+
+- Değerleri koleksiyon olarak tutar.
+
+#### List Fonksiyonları
+
+- PUSH
+  - `LPUSH key value1 value2 value3` : key'e value1, value2, value3 değerlerini sırayla ekler.
+
+  - `RPUSH key value1 value2 value3` : key'e value1, value2, value3 değerlerini sırayla ekler.
+
+- POP
+  - `LPOP key` : key'e atanan değerden ilk değeri siler ve döndürür.
+  - `RPOP key` : key'e atanan değerden son değeri siler ve döndürür.
+
+- GET
+  - `LINDEX key index` : key'e atanan değerden index değerine sahip değeri döndürür.
+    - `LINDEX key -1` : key'e atanan değerden son değeri döndürür.
+
+- SET
+  - `LSET key index value` : key'e atanan değerden index değerine sahip değeri value değeri ile değiştirir.
+
+- RANGE
+  - `LRANGE key start end` : key'e atanan değerden start ile end arasındaki değerleri döndürür.
+    - `LRANGE key 0 -1` : key'e atanan değerden tüm değerleri döndürür.
