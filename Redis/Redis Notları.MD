@@ -109,3 +109,19 @@
 - RANGE
   - `LRANGE key start end` : key'e atanan değerden start ile end arasındaki değerleri döndürür.
     - `LRANGE key 0 -1` : key'e atanan değerden tüm değerleri döndürür.
+
+### Set
+
+- Birbirinden farklı, unique, değerleri içeren veri kümeleri oluşturmak için kullanılır ve veriler sıralama olmaksızın tutulur.
+
+#### Set Fonksiyonları
+
+- `SADD key value1 value2 value3` : key'e value1, value2, value3 değerlerini ekler.
+
+- `SREM key value1 value2 value3` : key'e atanan değerden value1, value2, value3 değerlerini siler.
+
+- `SISMEMBER key value` : key'e atanan değerden value değerinin olup olmadığını 1 veya sıfır döndürürerek belirtir.
+- `SINTER key1 key2 key3` : key1, key2, key3'e atanan değerlerin kesişimini döndürür.
+- `SUNION key1 key2 key3` : key1, key2, key3'e atanan değerlerin birleşimini döndürür. Aynı değerler tekrar edilmez.
+- `SDIFF key1 key2 key3` : key1, key2, key3'e atanan değerlerin farkını döndürür.
+- `SCARD key1`: key'e atanan değerlerin sayısını döndürür.
