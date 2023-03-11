@@ -140,3 +140,17 @@
   - `ZRANGE key 0 -1` : key'e atanan değerden tüm değerleri döndürür.
   - `ZRANGE key 0 -1 WITHSCORES` : key'e atanan değerden tüm değerleri ve score değerlerini döndürür.
 - `ZREVRANK key value` : key'e atanan değerden value değerinin sıralama değerini döndürür.
+
+### Hash
+
+- Key-value değerlerini tutan veri yapısıdır.
+
+#### Hash Fonksiyonları
+
+- `HSET & HSET key field1 value1 field2 value2 field3 value3` : key'e field1, value1, field2, value2, field3, value3 değerlerini ekler.
+
+- `HGET & HMGET key field` : key'e atanan değerden field değerini döndürür.
+
+- `HDEL key field1 field2 field3` : key'e atanan değerden field1, field2, field3 değerlerini siler.
+
+- `HGETALL key`: key'e atanan değerleri döndürür.
