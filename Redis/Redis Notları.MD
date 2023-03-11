@@ -125,3 +125,18 @@
 - `SUNION key1 key2 key3` : key1, key2, key3'e atanan değerlerin birleşimini döndürür. Aynı değerler tekrar edilmez.
 - `SDIFF key1 key2 key3` : key1, key2, key3'e atanan değerlerin farkını döndürür.
 - `SCARD key1`: key'e atanan değerlerin sayısını döndürür.
+
+### Sorted Set
+
+- Set veri yapısına benzer ancak değerler sıralı olarak tutulur. Sıralama için score değeri kullanılır.
+
+#### Sorted Set Fonksiyonları
+
+- `ZADD key score1 value1 score2 value2 score3 value3` : key'e score1, value1, score2, value2, score3, value3 değerlerini ekler.
+
+- `ZREM key value1 value2 value3` : key'e atanan değerden value1, value2, value3 değerlerini siler.
+
+- `ZRANGE key start end` : key'e atanan değerden start ile end arasındaki değerleri döndürür.
+  - `ZRANGE key 0 -1` : key'e atanan değerden tüm değerleri döndürür.
+  - `ZRANGE key 0 -1 WITHSCORES` : key'e atanan değerden tüm değerleri ve score değerlerini döndürür.
+- `ZREVRANK key value` : key'e atanan değerden value değerinin sıralama değerini döndürür.
