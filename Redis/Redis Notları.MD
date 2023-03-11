@@ -53,3 +53,33 @@
 - Verilerin, birden fazla makinede tutulmasıdır.
 
 - Bu, hem güvenlik hem de performans açısından avantaj sağlar.
+
+#### Redis CLI ve Docker
+
+- Redis çalışan container üzerinden redis CLI'a bağlanmak için:
+
+  - `docker exec -it <containerId> redis-cli`
+
+## Redis Veri Yapıları
+
+### String
+
+- En temel veri türüdür. Hem metin hem de sayısal değerler tutulabilir. Hatta binary veriler de tutulabilir.
+
+#### String Fonksiyonları
+
+- `SET key value` : key'e value değerini atar.
+
+- `GET key` : key'e atanan değeri döndürür.
+
+- `INCR`: key'e atanan değeri 1 arttırır.
+  - `INCRBY key value` : key'e atanan değeri value kadar arttırır.
+- `DECR`: key'e atanan değeri 1 azaltır.
+  - `DECRBY key value` : key'e atanan değeri value kadar azaltır.
+- `GETRANGE key start end` : key'e atanan değerden start ile end arasındaki değeri döndürür.
+- `GETSET key value` : key'e atanan değeri value değeri ile değiştirir ve eski değeri döndürür.
+- `MGET key1 key2 key3` : key1, key2, key3'e atanan değerleri döndürür.
+- `MSET key1 value1 key2 value2 key3 value3` : key1'e value1, key2'e value2, key3'e value3 değerlerini atar.
+- `MSETNX key1 value1 key2 value2 key3 value3` : key1'e value1, key2'e value2, key3'e value3 değerlerini atar. Ancak key1, key2, key3'e atanan değerlerin olmaması gerekir.
+- `APPEND key value` : key'e atanan değere value değerini ekler.
+- `STRLEN key` : key'e atanan değerin uzunluğunu döndürür.
