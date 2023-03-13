@@ -130,3 +130,36 @@ header.main-header h1.brown{
 ### Align Self
 
 - It overrides the cross axis position of the element
+
+## Position
+
+### Static
+
+- It is the default value of position property.
+- It follows the document flow for positioning.
+
+### Relative
+
+- It works almost exactly the same as static.
+
+- However, it allows us to use 4 property: left, right, top, bottom.
+
+- these properties positiones the element relative to its normal position.
+
+- It allows us to position absolute child elements inside of it.
+
+### Absolute
+
+- It makes the element as if it doesn't exit, the element removed completely from document flow and other elements renders as if the abosulte positioned element didn't exist.
+
+- left, right, bottom, top properties positiones the element absolutely and its __reference is a parent element not positioned static or html page__
+
+- useful when you want something in a specific position but want don't anything else move around it
+
+### Fixed
+
+- It works as the same as absolute but the difference is its reference is HTML page, not a parent and it is fixed that position even if we scroll.
+
+### Sticky
+
+- It works as the same as relative but when you scroll down, it works as a fixed position and positions itself top value.
