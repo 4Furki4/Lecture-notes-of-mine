@@ -163,3 +163,33 @@ header.main-header h1.brown{
 ### Sticky
 
 - It works as the same as relative but when you scroll down, it works as a fixed position and positions itself top value.
+
+## Box Model
+
+- Everything in css is counted as BOX!
+
+- These boxes have diff parts: actual content, padding, border and margin.
+
+### Content
+
+- This is the main part of an box and can be basicly modified using width and height.
+
+- By default, a box total size is computed using height + top-bottom paadding + top-bottom border size (and width has the same logic too).
+
+- But you can override this behaviour using Border-box so that width or height value subtracted by the padding and border value.
+  - Developers usally use this behaviour without the need of calculating the total of size. It's because the size will be the values you give to height and width.
+
+### Padding
+
+- It occurs inside of the background of the element, or simply it add space between its border and content.
+
+### Border
+
+- As its name refers, it adds border.
+
+### Margin
+
+- It occurs outside of the element and used for adding space between 2 elements.
+
+- Margin value is shared between elements and the biggest margin value is used.
+  - If you have 2 adjacent elements with 10 px margin, margin will not be 20px between them!

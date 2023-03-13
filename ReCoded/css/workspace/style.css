@@ -1,15 +1,17 @@
-.li,
-.anch {
-    font-size: 200%;
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 40px;
 }
 
-.li {
-    margin: 10px;
+
+.box-one {
+    background-color: #eb5757;
+    border: 0px solid #9b51e0;
+    padding: 10px;
 }
 
-.anch {
-    text-decoration-line: none;
-    color: hsla(360, 100%, 50%, 1);
-
-
+.box-two {
+    background-color: #002df5;
+    border: 0px solid #18cf00;
 }
