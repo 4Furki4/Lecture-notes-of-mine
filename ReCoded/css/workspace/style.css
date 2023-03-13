@@ -1,0 +1,14 @@
+.li,
+.anch {
+    font-size: 200%;
+}
+
+.li {
+    margin: 10px;
+}
+
+.anch {
+    text-decoration-line: none;
+    color: hsla(360, 100%, 50%, 1);
+
+}
