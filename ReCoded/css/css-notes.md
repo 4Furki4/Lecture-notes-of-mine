@@ -90,8 +90,8 @@ header.main-header h1.brown{
 - For each of RGB element, the value can be 0-255
   - An example: #003a2c
     - Red value is 0.
-    - Green value is (3 * 10) 30.
-    - Blue value is (2*12) 24.
+    - Green value is 58.
+    - Blue value is 44.
 - It can take 2 more digits to represent opacity.
 
 ### hsl and hsla
@@ -104,3 +104,29 @@ header.main-header h1.brown{
 
 - l stands for lightness which can be 0-100%
   - 100% makes white while 0% makes black
+
+-----------------------------
+
+## Flexbox
+
+- Flexbox makes our items in a container flexable and goals to align as minimum space as possible.
+
+- It's being applied using `display: flex`
+
+### Flexbox Direction
+
+- Default is row, it makes main axis horizontal and cross axis vertical. However, column makes main axis vertical and cross axis horizontal.
+
+  - Also there are 2 more direction which are row-reverse and column-reverse
+
+### Justify Content
+
+- Align flex items along the main axis.
+
+### Align Items
+
+- Align flex items along the cross axis
+
+### Align Self
+
+- It overrides the cross axis position of the element
