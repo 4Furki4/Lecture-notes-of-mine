@@ -69,6 +69,43 @@ header.main-header h1.brown{
 }
 ````
 
+### Adjacent Sibling Selector
+
+- targets the elements that appear after the matching selector name
+
+````css
+h3 + p {
+  color: blue;
+}
+
+<h3>Header</h3>
+<p>I'm blue</p>
+<p>I'm not blue</p>
+````
+
+### General Sibling Selector
+
+- targets all elements that appear after the matching selector name
+
+````css
+h3 ~ p {
+  color: red;
+}
+<h3>Header</h3>
+<p>I'm red</p>
+<p>I'm red</p>
+````
+
+### Attribute Selector
+
+- It helps us to select elements with a spesific attribute.
+
+````css
+input[type="text"] {
+  width: 200px;
+}
+````
+
 ### Asterisk * Selector
 
 - It refers to everything and used to set default properties.
@@ -76,6 +113,21 @@ header.main-header h1.brown{
 ````css
 * {
     font-family: ...
+}
+````
+
+### Pseudo-class Selectors
+
+- targets elements based on a state or a relationship to other elemets
+
+````css
+
+a:link {
+  color: blue;
+}
+
+a:visited {
+  color: purple;
 }
 ````
 
