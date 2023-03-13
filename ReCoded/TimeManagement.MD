@@ -64,3 +64,14 @@
 
 - T
   - I'll set a specific deadline when I thoroughly determine what to do.
+
+### Helpful Techniques and Apps For Time Management
+
+- OFC, Pomodoro but 52/17 one.
+
+- 1-3-5 Rule.
+  - It's all about determining 1 major task, 3 medium tasks and 5 small tasks.
+  - Suggested order of completing tasks is begginning with the major task of the day.
+
+- The Eisenhower Matrix
+  ![The Eisenhower Matrix](./pics/the-eisenhower-matrix.png)
