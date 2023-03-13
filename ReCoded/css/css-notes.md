@@ -78,3 +78,29 @@ header.main-header h1.brown{
     font-family: ...
 }
 ````
+
+## Color Property
+
+### Hexadecimal and RGB
+
+- It's used with an # symbol.
+
+- It takes 2 digits whose each digit value is between 0-15.
+  - 0-9 is represented with numbers, 10-15 represented with a-f
+- For each of RGB element, the value can be 0-255
+  - An example: #003a2c
+    - Red value is 0.
+    - Green value is (3 * 10) 30.
+    - Blue value is (2*12) 24.
+- It can take 2 more digits to represent opacity.
+
+### hsl and hsla
+
+- h stands for hue and it can be between 0 and 360.
+  - for example: 0 is red, 120 is green and etc.
+
+- s stands for saturation which can be 0-100%
+  - 0% s makes gray
+
+- l stands for lightness which can be 0-100%
+  - 100% makes white while 0% makes black
