@@ -4,6 +4,8 @@
 
 ## Combining Selectors
 
+__Note: Make sure that you are properly using inheritance of properties and don't repeat yourself !__
+
 ### Various Selectors Without Space Between Them
 
 ````css
@@ -245,3 +247,27 @@ a:visited {
 
 - Margin value is shared between elements and the biggest margin value is used.
   - If you have 2 adjacent elements with 10 px margin, margin will not be 20px between them!
+
+#### More Margin with Kevin Powel
+
+- margin auto use the empty space in that axis to push itself.
+
+- if two elements have margin auto, the space evently shared!
+
+  - BTW, this behaviour if the element is grid or flexbox!
+
+## CSS Variables
+
+- You can define variable in even CSS and use them in wherever you want !
+- the value can be anything valid as a value of css property.
+
+### Declare Variable
+
+- To declare a css variable: -- double hyphen is used !
+  - for example: `--primary-color: #ff1`
+
+- The variables are generally defined in `:root` or ``html``
+
+### How to Use Its value ?
+
+- ``var()`` is used in order to get the value of a css variable.
