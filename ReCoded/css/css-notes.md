@@ -271,3 +271,29 @@ a:visited {
 ### How to Use Its value ?
 
 - ``var()`` is used in order to get the value of a css variable.
+
+## em, rem, px
+
+- Rem and em are relative units used a lot by devs.
+
+### Rem
+
+- rem stands for _root element's_ __font size__.
+
+- Generally, default font size is 16px. So, If a prop is 1 rem, it is 16px!
+
+  - OFC, we can override this value using ``:root``
+
+- Then you can calculate the size based on the rem value!
+  - Example:
+
+````css
+:root{
+  font-size:16px;
+}
+1.25rem will equal to 20px !
+````
+
+### Em
+
+- em stands for _parent element's_ __font size__.

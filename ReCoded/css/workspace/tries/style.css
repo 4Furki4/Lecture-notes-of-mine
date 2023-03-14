@@ -1,0 +1,92 @@
+:root {
+    --clr-primary: #462a68;
+
+    --clr-secondary: #6d41a1;
+
+    --clr-bg: #191b1c;
+
+    --clr-bg-secondary: #202223;
+}
+
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+    background-color: var(--clr-bg);
+}
+
+header {
+    font-size: larger;
+    text-align: center;
+    color: antiquewhite;
+    font-weight: 600;
+    background-color: var(--clr-primary);
+}
+
+.navbar {
+    height: 60px;
+    display: flex;
+    flex-basis: 1;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+
+.navbar div {
+    padding: 8px;
+    width: max-content;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color linear .15s;
+    user-select: none;
+    margin-left: 20px;
+    margin-right: 20px;
+    box-shadow: 4px 4px 5px purple;
+}
+
+h1~p .navbar div:hover {
+    background-color: #6d41a1cc;
+    transition: all linear .15s;
+    box-shadow: 2px 2px 5px purple;
+}
+
+.navbar div:active {
+    background-color: var(--clr-secondary);
+    transform: translate(-1px, -1px);
+    transition: all ease-in .05s;
+}
+
+#loginBtn {
+    justify-content: flex-start;
+}
+
+#signupBtn {
+    margin-right: auto;
+    margin-left: 20px;
+}
+
+#title {
+    margin-right: auto;
+}
+
+plate>apple {
+    height: 100px;
+    width: 100px;
+    background: red
+}
+
+div>apple {
+    box-sizing: content-box;
+    height: 100px;
+    width: 100px;
+    background: var(--clr-primary);
+
+}
