@@ -133,6 +133,8 @@ a:visited {
 }
 ````
 
+---
+
 ## Color Property
 
 ### Hexadecimal and RGB
@@ -185,6 +187,8 @@ a:visited {
 
 - It overrides the cross axis position of the element
 
+---
+
 ## Position
 
 ### Static
@@ -217,6 +221,8 @@ a:visited {
 ### Sticky
 
 - It works as the same as relative but when you scroll down, it works as a fixed position and positions itself top value.
+
+---
 
 ## Box Model
 
@@ -256,6 +262,8 @@ a:visited {
 
   - BTW, this behaviour if the element is grid or flexbox!
 
+---
+
 ## CSS Variables
 
 - You can define variable in even CSS and use them in wherever you want !
@@ -271,6 +279,8 @@ a:visited {
 ### How to Use Its value ?
 
 - ``var()`` is used in order to get the value of a css variable.
+
+---
 
 ## em, rem, px
 
@@ -298,6 +308,8 @@ a:visited {
 
 - em stands for _parent element's_ __font size__.
 
+---
+
 ## min, max, clamp
 
 ### min and max
@@ -316,6 +328,54 @@ a:visited {
 - it takes only 3 values: clamp(min, ideal, max)
 
 -------------------
+
+## Media Queries
+
+- It allows us to apply css based on device type or other charachteristics like screen size, screen resolution, oriantation.
+
+````css
+default is all
+@media device-type (condition){
+  //normal css
+}
+````
+
+- example:
+
+````css
+@media screen (min-width: 50rem){
+  .container{
+    ...
+  }
+}
+
+````
+
+---
+
+## Media Queries
+
+- It allows us to apply css based on device type or other charachteristics like screen size, screen resolution, oriantation.
+
+````css
+default is all
+@media device-type (condition){
+  //normal css
+}
+````
+
+- example:
+
+````css
+@media screen (min-width: 50rem){
+  .container{
+    // It means that if screen wider than 50rem
+  }
+}
+
+````
+
+---
 
 ## Responsive Design
 
