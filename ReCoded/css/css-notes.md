@@ -382,3 +382,16 @@ default is all
 __Most important mindset you need to take in yourself is preparing mobile design which actually has less complexity firsly. After that, add more complexity using media queries for wider screens like desktop.__
 
 - First things first, you need to properly set up the basic css adding width, margin, padding, image sizes, color, font sizes and etc. This probably works for mobile. Than add flexboxes, media queries for desktop.
+
+### HTML IS ALREADY RESPONSIVE
+
+- If you don't have any line of css and just have html, you have responsive website.
+- It is because by default, box width is 100% instead of __static value__
+- Stick to assign percentage values to stick responsiveness!
+
+- ok ok ok, hold on. percentage of what ? ofc, parent!
+
+- As I said, websites are responsive by default! We are the ones who makes the websites unresponsive.
+
+- As a general rule, don't change width and hight to a static value which ruins the responsiveness.
+  - If you need more space, use padding!
