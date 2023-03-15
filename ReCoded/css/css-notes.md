@@ -133,6 +133,8 @@ a:visited {
 }
 ````
 
+---
+
 ## Color Property
 
 ### Hexadecimal and RGB
@@ -185,6 +187,8 @@ a:visited {
 
 - It overrides the cross axis position of the element
 
+---
+
 ## Position
 
 ### Static
@@ -217,6 +221,8 @@ a:visited {
 ### Sticky
 
 - It works as the same as relative but when you scroll down, it works as a fixed position and positions itself top value.
+
+---
 
 ## Box Model
 
@@ -256,6 +262,8 @@ a:visited {
 
   - BTW, this behaviour if the element is grid or flexbox!
 
+---
+
 ## CSS Variables
 
 - You can define variable in even CSS and use them in wherever you want !
@@ -271,3 +279,106 @@ a:visited {
 ### How to Use Its value ?
 
 - ``var()`` is used in order to get the value of a css variable.
+
+---
+
+## em, rem, px
+
+- Rem and em are relative units used a lot by devs.
+
+### Rem
+
+- rem stands for _root element's_ __font size__.
+
+- Generally, default font size is 16px. So, If a prop is 1 rem, it is 16px!
+
+  - OFC, we can override this value using ``:root``
+
+- Then you can calculate the size based on the rem value!
+  - Example:
+
+````css
+:root{
+  font-size:16px;
+}
+1.25rem will equal to 20px !
+````
+
+### Em
+
+- em stands for _parent element's_ __font size__.
+
+---
+
+## min, max, clamp
+
+### min and max
+
+- min(val1,val2)
+
+  - what this is doing is to select the minimum val based on the situation.
+  - if we put `width: min(500px, 70%)`, it'll select minumum value between them. If our screen was 1000px, it'd select 500px because it's less than 700px.
+
+- max does the reverse.
+
+- they can take more than 2 values but it gets more complex
+
+### clamp
+
+- it takes only 3 values: clamp(min, ideal, max)
+
+-------------------
+
+## Media Queries
+
+- It allows us to apply css based on device type or other charachteristics like screen size, screen resolution, oriantation.
+
+````css
+default is all
+@media device-type (condition){
+  //normal css
+}
+````
+
+- example:
+
+````css
+@media screen (min-width: 50rem){
+  .container{
+    ...
+  }
+}
+
+````
+
+---
+
+## Media Queries
+
+- It allows us to apply css based on device type or other charachteristics like screen size, screen resolution, oriantation.
+
+````css
+default is all
+@media device-type (condition){
+  //normal css
+}
+````
+
+- example:
+
+````css
+@media screen (min-width: 50rem){
+  .container{
+    // It means that if screen wider than 50rem
+  }
+}
+
+````
+
+---
+
+## Responsive Design
+
+__Most important mindset you need to take in yourself is preparing mobile design which actually has less complexity firsly. After that, add more complexity using media queries for wider screens like desktop.__
+
+- First things first, you need to properly set up the basic css adding width, margin, padding, image sizes, color, font sizes and etc. This probably works for mobile. Than add flexboxes, media queries for desktop.
