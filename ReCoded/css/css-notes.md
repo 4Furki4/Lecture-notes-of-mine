@@ -314,3 +314,11 @@ a:visited {
 ### clamp
 
 - it takes only 3 values: clamp(min, ideal, max)
+
+-------------------
+
+## Responsive Design
+
+__Most important mindset you need to take in yourself is preparing mobile design which actually has less complexity firsly. After that, add more complexity using media queries for wider screens like desktop.__
+
+- First things first, you need to properly set up the basic css adding width, margin, padding, image sizes, color, font sizes and etc. This probably works for mobile. Than add flexboxes, media queries for desktop.
