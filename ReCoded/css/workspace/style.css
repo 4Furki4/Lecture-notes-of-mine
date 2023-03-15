@@ -18,29 +18,12 @@ body {
     box-sizing: border-box;
     position: relative;
     background-color: var(--clr-bg);
+    color: wheat;
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.card {
-    font-size: 2rem;
-    background-color: azure;
-}
-
-.mini-card {
-    margin-top: 5px;
-    font-size: 1rem;
-    background-color: azure;
-    align-self: flex-end;
-}
-
-
-header {
-    font-size: larger;
-    color: antiquewhite;
-    font-weight: 600;
+main p {
+    width: clamp(200px, 90%, 1000px);
+    margin-inline: auto;
+    text-align: center;
+    font-size: clamp(1rem, 2vw, 5rem);
 }

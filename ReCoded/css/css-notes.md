@@ -297,3 +297,20 @@ a:visited {
 ### Em
 
 - em stands for _parent element's_ __font size__.
+
+## min, max, clamp
+
+### min and max
+
+- min(val1,val2)
+
+  - what this is doing is to select the minimum val based on the situation.
+  - if we put `width: min(500px, 70%)`, it'll select minumum value between them. If our screen was 1000px, it'd select 500px because it's less than 700px.
+
+- max does the reverse.
+
+- they can take more than 2 values but it gets more complex
+
+### clamp
+
+- it takes only 3 values: clamp(min, ideal, max)

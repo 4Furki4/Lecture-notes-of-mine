@@ -52,10 +52,11 @@ header {
     box-shadow: 4px 4px 5px purple;
 }
 
-h1~p .navbar div:hover {
+.navbar div:hover {
     background-color: #6d41a1cc;
     transition: all linear .15s;
     box-shadow: 2px 2px 5px purple;
+    transform: translateY(-4px);
 }
 
 .navbar div:active {
@@ -77,16 +78,11 @@ h1~p .navbar div:hover {
     margin-right: auto;
 }
 
-plate>apple {
-    height: 100px;
-    width: 100px;
-    background: red
+main {
+    color: wheat;
 }
 
-div>apple {
-    box-sizing: content-box;
-    height: 100px;
-    width: 100px;
-    background: var(--clr-primary);
-
+main .card {
+    width: min(90%, 1500px);
+    margin-inline: auto;
 }
