@@ -310,6 +310,23 @@ a:visited {
 
 __PS: for properties like margin, padding etc. except font-size, em value corresponds to current element's font size, not parent. So, em can be used with margin and paddings which makes them fit to the font-size fluently, instead of font-sizes which may cause big problems__
 
+----
+
+## vh, vw, vmin, vmax
+
+- v stands for viewport which is basicly the current area of page
+
+- vh: viewport _height_
+
+- vw: viewpoer _width_
+
+- the difference between percentage is that while percentage is based on parent element's values, viewport is just based on the screen size actually.
+
+- ignore using vm for paragraph font sizes but it can be useful for padding, margin and h1s
+
+- vmin and vmax allows us to choose the ratio from the minimum or maximum value between vw and vh
+  - vmin: If the height of screen is bigger than width, the percentage will be based on width, and visa versa.
+
 ---
 
 ## min, max, clamp
