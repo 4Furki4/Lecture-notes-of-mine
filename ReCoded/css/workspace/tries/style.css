@@ -32,7 +32,7 @@ header {
 .navbar {
     display: flex;
     flex-direction: column;
-    width: 98%;
+    width: 100%;
     margin-right: auto;
     margin-left: auto;
     align-items: normal;
@@ -48,10 +48,11 @@ header {
     cursor: pointer;
     transition: background-color linear .15s;
     user-select: none;
+    padding: .5em 1em;
     box-shadow: 0px 5px 1rem black;
-    padding: .75rem;
-    padding-inline: 1rem;
     background-color: #6d41a1cc;
+    width: 60%;
+    margin-inline: auto;
 }
 
 
@@ -71,6 +72,8 @@ header {
 
 
 @media (min-width:550px) {
+
+
     h1 {
         margin-right: auto;
     }
@@ -89,7 +92,9 @@ header {
     }
 
     .btn {
+        font-size: 1.25rem;
         padding-left: min(2em, 3vw);
         padding-right: min(2em, 3vw);
+        width: auto;
     }
 }

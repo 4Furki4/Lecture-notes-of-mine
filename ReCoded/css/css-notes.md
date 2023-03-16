@@ -308,6 +308,8 @@ a:visited {
 
 - em stands for _parent element's_ __font size__.
 
+__PS: for properties like margin, padding etc. except font-size, em value corresponds to current element's font size, not parent. So, em can be used with margin and paddings which makes them fit to the font-size fluently, instead of font-sizes which may cause big problems__
+
 ---
 
 ## min, max, clamp
@@ -350,32 +352,6 @@ default is all
 }
 
 ````
-
----
-
-## Media Queries
-
-- It allows us to apply css based on device type or other charachteristics like screen size, screen resolution, oriantation.
-
-````css
-default is all
-@media device-type (condition){
-  //normal css
-}
-````
-
-- example:
-
-````css
-@media screen (min-width: 50rem){
-  .container{
-    // It means that if screen wider than 50rem
-  }
-}
-
-````
-
----
 
 ## Responsive Design
 
