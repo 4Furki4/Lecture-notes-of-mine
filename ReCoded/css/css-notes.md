@@ -308,6 +308,25 @@ a:visited {
 
 - em stands for _parent element's_ __font size__.
 
+__PS: for properties like margin, padding etc. except font-size, em value corresponds to current element's font size, not parent. So, em can be used with margin and paddings which makes them fit to the font-size fluently, instead of font-sizes which may cause big problems__
+
+----
+
+## vh, vw, vmin, vmax
+
+- v stands for viewport which is basicly the current area of page
+
+- vh: viewport _height_
+
+- vw: viewpoer _width_
+
+- the difference between percentage is that while percentage is based on parent element's values, viewport is just based on the screen size actually.
+
+- ignore using vm for paragraph font sizes but it can be useful for padding, margin and h1s
+
+- vmin and vmax allows us to choose the ratio from the minimum or maximum value between vw and vh
+  - vmin: If the height of screen is bigger than width, the percentage will be based on width, and visa versa.
+
 ---
 
 ## min, max, clamp
@@ -351,34 +370,21 @@ default is all
 
 ````
 
----
-
-## Media Queries
-
-- It allows us to apply css based on device type or other charachteristics like screen size, screen resolution, oriantation.
-
-````css
-default is all
-@media device-type (condition){
-  //normal css
-}
-````
-
-- example:
-
-````css
-@media screen (min-width: 50rem){
-  .container{
-    // It means that if screen wider than 50rem
-  }
-}
-
-````
-
----
-
 ## Responsive Design
 
 __Most important mindset you need to take in yourself is preparing mobile design which actually has less complexity firsly. After that, add more complexity using media queries for wider screens like desktop.__
 
 - First things first, you need to properly set up the basic css adding width, margin, padding, image sizes, color, font sizes and etc. This probably works for mobile. Than add flexboxes, media queries for desktop.
+
+### HTML IS ALREADY RESPONSIVE
+
+- If you don't have any line of css and just have html, you have responsive website.
+- It is because by default, box width is 100% instead of __static value__
+- Stick to assign percentage values to stick responsiveness!
+
+- ok ok ok, hold on. percentage of what ? ofc, parent!
+
+- As I said, websites are responsive by default! We are the ones who makes the websites unresponsive.
+
+- As a general rule, don't change width and hight to a static value which ruins the responsiveness.
+  - If you need more space, use padding!
