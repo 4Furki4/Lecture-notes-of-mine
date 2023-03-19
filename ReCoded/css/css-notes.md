@@ -370,6 +370,16 @@ default is all
 
 ````
 
+## MAKE SURE YOU DON'T DO THESE BASIC MISTAKES
+
+- Don't overrely on flexbox system, there is grid system out there and some other solutions.
+
+- Don't overrely on position obsolute, don't even use them if you're not stuck ! There are relative position and transform: translate etc.
+
+- Name properly your classes and use utility classes for background colors, fonts etc so that you don't repeat youself.
+
+- If you want to have equal flex items, try to use ``flex: 1`` or ``flex-basis: 100%``
+
 ## Responsive Design
 
 __Most important mindset you need to take in yourself is preparing mobile design which actually has less complexity firsly. After that, add more complexity using media queries for wider screens like desktop.__
