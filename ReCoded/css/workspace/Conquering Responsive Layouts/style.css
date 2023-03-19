@@ -1,0 +1,28 @@
+:root {
+    font-size: 20px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+.parent {
+    background-color: blue;
+    padding: 2.5rem;
+    width: 80%;
+    margin-inline: auto;
+    display: flex;
+}
+
+.child {
+    background-color: blueviolet;
+    width: 100%;
+    margin-inline: auto;
+}
+
+.child:nth-child(2n) {
+    font-size: 2.5rem;
+    margin-left: 1em;
+}

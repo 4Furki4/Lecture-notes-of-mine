@@ -1,61 +1,29 @@
 :root {
-    --clr-primary: #ee6352;
-    --clr-body: #333;
-    --clr-bg: #ddd;
+    --clr-primary: #462a68;
+
+    --clr-secondary: #6d41a1;
+
+    --clr-bg: #191b1c;
+
+    --clr-bg-secondary: #202223;
+
+    font-size: 16px;
 }
+
 
 body {
-    margin: 0;
-    font-family: basic-sans, sans-serif;
-    font-size: 1.125em;
-    line-height: 1.6;
-    color: var(--clr-body);
-    background-color: var(--clr-bg);
-    min-height: 100vh;
-}
-
-header {
-    padding: 2em;
-    background: #fff;
-    background-color: brown;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-nav {
-    padding: 2px;
-    flex-grow: 1;
-    background-color: #333;
-}
-
-.nav-list {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    gap: 1em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 0;
     padding: 0;
-    list-style: none;
-    background: rgba(0, 225, 255, 0.979);
-    justify-content: center;
+    box-sizing: border-box;
+    position: relative;
+    background-color: var(--clr-bg);
+    color: wheat;
+}
+
+main p {
+    width: clamp(200px, 90%, 1000px);
+    margin-inline: auto;
     text-align: center;
-}
-
-.nav-list a {
-    line-height: 3;
-    color: var(--clr-primary);
-
-}
-
-.nav-list li {
-    background-color: black;
-}
-
-.nav-list a:hover,
-.nav-list a:focus {
-    color: var(--clr-body);
+    font-size: clamp(1rem, 2vw, 5rem);
 }
