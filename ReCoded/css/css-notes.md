@@ -370,6 +370,28 @@ default is all
 
 ````
 
+## GRID
+
+### Grid-Template-Area
+
+- This allows to define areas with a unique syntax
+
+````css
+.container{
+grid-template-areas:
+'one one two five' /* this is the first row! names are the columns alligned by names */
+'three four four five'; /* second row with 4 columns */
+}
+````
+
+````css
+.card:first-child{
+  grid-area: one; /* assign the defined area*/
+}
+````
+
+- If you want cards to have the same area, use this in the container: ``grid-auto: 1fr``
+
 ## MAKE SURE YOU DON'T DO THESE BASIC MISTAKES
 
 - Don't overrely on flexbox system, there is grid system out there and some other solutions.
