@@ -398,3 +398,10 @@ __Most important mindset you need to take in yourself is preparing mobile design
 
 - As a general rule, don't change width and hight to a static value which ruins the responsiveness.
   - If you need more space, use padding!
+
+### Width
+
+- Avoid using static values like px. Instead, use ratios.
+- % is based on parent's size.
+
+- to avoid texts that streches all the way, you can use max-width
