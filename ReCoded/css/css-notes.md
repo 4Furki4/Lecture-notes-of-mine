@@ -370,6 +370,62 @@ default is all
 
 ````
 
+## GRID
+
+### Grid-Template-Area
+
+- This allows to define areas with a unique syntax
+
+````css
+.container{
+grid-template-areas:
+'one one two five' /* this is the first row! names are the columns alligned by names */
+'three four four five'; /* second row with 4 columns */
+}
+````
+
+````css
+.card:first-child{
+  grid-area: one; /* assign the defined area*/
+}
+````
+
+- If you want cards to have the same area, use this in the container: ``grid-auto: 1fr``
+
+## MAKE SURE YOU DON'T DO THESE BASIC MISTAKES
+
+- Don't overrely on flexbox system, there is grid system out there and some other solutions.
+
+- Don't overrely on position obsolute, don't even use them if you're not stuck ! There are relative position and transform: translate etc.
+
+- Name properly your classes and use utility classes for background colors, fonts etc so that you don't repeat youself.
+
+- If you want to have equal flex items, try to use ``flex: 1`` or ``flex-basis: 100%``
+
+- KEEP PRACTISE WHAT YOU LEARN !
+
+### Website Help To Practise
+
+- [frontendmentor](https://www.frontendmentor.io/challenges/results-summary-component-CE_K6s0maV)
+- [stylestage](https://stylestage.dev/)
+  - It provides html document and expects us to come up with creative style. There is opportunity to be published on their site.
+- [css battles](https://cssbattle.dev/) and [code wars](https://www.codewars.com/)
+- [Frontend practise: Cloning Websites](https://www.frontendpractice.com/)
+
+- [Open Source Guide](https://www.firsttimersonly.com/)
+
+## Background Images, Settings
+
+### Basics
+
+- Make sure that you have image which is not that huge by size.
+
+- You can repeat images to make them decorative.
+
+- You can have image cover the area using ``background-size: cover``
+
+- Another tip is that you can combine background color and background-image using ``background-blend-mode: multiply - lighten;``
+
 ## Responsive Design
 
 __Most important mindset you need to take in yourself is preparing mobile design which actually has less complexity firsly. After that, add more complexity using media queries for wider screens like desktop.__
@@ -388,3 +444,10 @@ __Most important mindset you need to take in yourself is preparing mobile design
 
 - As a general rule, don't change width and hight to a static value which ruins the responsiveness.
   - If you need more space, use padding!
+
+### Width
+
+- Avoid using static values like px. Instead, use ratios.
+- % is based on parent's size.
+
+- to avoid texts that streches all the way, you can use max-width
