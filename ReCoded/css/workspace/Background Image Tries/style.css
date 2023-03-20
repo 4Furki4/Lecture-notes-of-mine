@@ -1,0 +1,19 @@
+:root {
+    --background-color: #9f76eb;
+    --background-text-color: rgba(255, 255, 255, 0.781);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+.image-container {
+    padding: 10rem;
+    background-color: var(--background-color);
+    color: var(--background-text-color);
+    background-image: url(./images/mountain-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: soft-light;
+}

@@ -414,6 +414,18 @@ grid-template-areas:
 
 - [Open Source Guide](https://www.firsttimersonly.com/)
 
+## Background Images, Settings
+
+### Basics
+
+- Make sure that you have image which is not that huge by size.
+
+- You can repeat images to make them decorative.
+
+- You can have image cover the area using ``background-size: cover``
+
+- Another tip is that you can combine background color and background-image using ``background-blend-mode: multiply - lighten;``
+
 ## Responsive Design
 
 __Most important mindset you need to take in yourself is preparing mobile design which actually has less complexity firsly. After that, add more complexity using media queries for wider screens like desktop.__
