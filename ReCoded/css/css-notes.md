@@ -380,6 +380,18 @@ default is all
 
 - If you want to have equal flex items, try to use ``flex: 1`` or ``flex-basis: 100%``
 
+- KEEP PRACTISE WHAT YOU LEARN !
+
+### Website Help To Practise
+
+- [frontendmentor](https://www.frontendmentor.io/challenges/results-summary-component-CE_K6s0maV)
+- [stylestage](https://stylestage.dev/)
+  - It provides html document and expects us to come up with creative style. There is opportunity to be published on their site.
+- [css battles](https://cssbattle.dev/) and [code wars](https://www.codewars.com/)
+- [Frontend practise: Cloning Websites](https://www.frontendpractice.com/)
+
+- [Open Source Guide](https://www.firsttimersonly.com/)
+
 ## Responsive Design
 
 __Most important mindset you need to take in yourself is preparing mobile design which actually has less complexity firsly. After that, add more complexity using media queries for wider screens like desktop.__
