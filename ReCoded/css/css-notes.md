@@ -451,3 +451,11 @@ __Most important mindset you need to take in yourself is preparing mobile design
 - % is based on parent's size.
 
 - to avoid texts that streches all the way, you can use max-width
+
+### Flex
+
+- We need to use a container to be able to use flex items which are the direct children of this flex container.
+
+- Flex items will shrink down to smallest possible size.
+
+- If you want your children take the same size, use ``width:100%`` in children class.
