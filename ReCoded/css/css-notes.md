@@ -503,6 +503,62 @@ grid-template-areas:
 
 - First shape will be below the other shapes that are rendered after. LIFO !
 
+### viewBox
+
+- viewport is the vieable area, while viewbox controls what is viewable is inside this viewable area.
+
+- here is an example: ``viewBox: "0 0 300 300"``
+  - this means that our __visible area__ starting at x-0 y-0.
+  - what viewBox controls what's inside our viewport, viewable area, right ?
+  - so, if I change it to `viewBox: "100 100 300 300"` it means that our viewable area starts at x-100 y-100, so what I can see in viewport is changed !
+  - and the other last 2 value controls the zoom in and out.
+
+- with svg viewBox, we can control what icon inside the svg will be shown using zoom in-out and positioning x-y of our viewport. It is called sprite system.
+
+----
+
+## BEM
+
+- It suggests us to name classes as BLOCK then ELEMENT then style
+  - `BLOCK__element--style`
+  - `.card__title--font-large`
+
+------
+
+## Animation
+
+### keyframes
+
+- to define an animation, we need to use this keyword
+
+````css
+@keyframes animation-name {
+  from {...}
+  to {...}
+  /* or */
+  0% {...} /* start animation with this style and lives until 50% */
+  50% {...} /* start this style at 50% */
+  100% {... } /* ends here */
+}
+````
+
+### animation-name
+
+- use the defined animation
+
+### animation-duration
+
+- how long does it take to run this animation ?
+
+### animation-iteration-count
+
+- how many times is it be itareted ? infinite ? 5 times :D?
+
+### animation-fill-mode
+
+- forwards make animation last keyframe step styles remain even if it ends.
+- backwards is visa versa
+
 ## Responsive Design
 
 __Most important mindset you need to take in yourself is preparing mobile design which actually has less complexity firsly. After that, add more complexity using media queries for wider screens like desktop.__
