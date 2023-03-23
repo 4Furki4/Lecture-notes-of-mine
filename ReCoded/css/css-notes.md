@@ -430,6 +430,79 @@ grid-template-areas:
 
 ## SVG
 
+- SVG stands for Scalable Vector Graphics which are created by using math!
+- Unlike pngs and other images, they are getting scaled when you zoom in, they seem more flexible and pristine.
+
+- There are 3 ways to use them. You can import them using img tag, use them as inline code or use them by their id.
+  - First 2 way is simple and self explanatory.
+
+````html
+<svg>
+  <use href="#svgId"></use>
+</svg>
+<svg id="svgId" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Edit / Add_Minus_Square"> <path id="Vector" d="M8 12H16M4 16.8002V7.2002C4 6.08009 4 5.51962 4.21799 5.0918C4.40973 4.71547 4.71547 4.40973 5.0918 4.21799C5.51962 4 6.08009 4 7.2002 4H16.8002C17.9203 4 18.4801 4 18.9079 4.21799C19.2842 4.40973 19.5905 4.71547 19.7822 5.0918C20.0002 5.51962 20.0002 6.07967 20.0002 7.19978V16.7998C20.0002 17.9199 20.0002 18.48 19.7822 18.9078C19.5905 19.2841 19.2842 19.5905 18.9079 19.7822C18.4805 20 17.9215 20 16.8036 20H7.19691C6.07899 20 5.5192 20 5.0918 19.7822C4.71547 19.5905 4.40973 19.2842 4.21799 18.9079C4 18.4801 4 17.9203 4 16.8002Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="--darkreader-inline-stroke: #ffffff;" data-darkreader-inline-stroke=""></path> </g> </g></svg>
+````
+
+- Browser think that everything inside svg tag is xml. It is because we're gonna add some xml inside this svg like `<circle/>`
+
+### Shapes
+
+#### Circle
+
+- circle have cx and cy to control center x axis and y axis. It is because we need a center to draw a circle, right ?
+
+#### Rectangle
+
+- created as `<rect/>`
+- It is x and y for rect but it represents the top left of the rectangle.
+
+#### Line
+
+- created as `<line/>`
+- It has x1, y1 and x2 and y2
+- stoke and stroke-width must be used to make it visible.
+
+#### Polygon
+
+- created as `<polygon/>`
+
+- allows us to draw any shape we want.
+
+- It takes points propery with at least 3 xy points
+
+- the last point will be closed with the first point !
+
+- It actually allows us to make more straight lines but curves cant be done.
+
+### Properties
+
+#### width and height
+
+- svg tag has 3 different size property: width, height and viewBox (don't know yet.)
+
+#### Fill
+
+- It corresponds to background property
+- default is black
+- to make it white, set it to none
+
+#### Stroke
+
+- It It corresponds to border
+
+##### stroke-width
+
+- half of the width is outside and the rest is from inside.
+
+#### Radius
+
+- rx and ry is used to give radius to a rectangle
+  - this means that x starts to round at a px, and y starts to round at b px
+
+### Order
+
+- First shape will be below the other shapes that are rendered after. LIFO !
+
 ## Responsive Design
 
 __Most important mindset you need to take in yourself is preparing mobile design which actually has less complexity firsly. After that, add more complexity using media queries for wider screens like desktop.__
