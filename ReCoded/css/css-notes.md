@@ -432,6 +432,25 @@ grid-template-areas:
 
 -------
 
+## ::before & ::after
+
+- First things first, in order to our properties work, we need to use ``content: ''``
+
+- ``::before`` or ``::after`` are psuedo __elements__ and they always will appear before or after the content of our element!
+
+- better to know that these elements will not work with img tags. It is because that img, video and etc. are __replaced content__ which means they are already content, so we cant apply these pseudo elements.
+
+- the content of pseudo elements are inline by default.
+  - content has some predefined values like: ``content: attr(data-attr)``, ``content: counter(list)``, ``content: open-quote``, ``content: close-quote``
+  - content can be font awesome icons, svg etc.
+  - content can be used with counter to count the number of elements and display their order.
+    - in order to to that we need to use ``counter-reset: list`` in the parent element and ``counter-increment: list`` in the child elements.
+    - then we can use ``content: counter(list)`` in the child elements.
+
+- the width and height percentage values are based on the parent element's width and height.
+
+----
+
 ## MAKE SURE YOU DON'T DO THESE BASIC MISTAKES
 
 - Don't overrely on flexbox system, there is grid system out there and some other solutions.
@@ -444,7 +463,7 @@ grid-template-areas:
 
 - KEEP PRACTISE WHAT YOU LEARN !
 
-### Website Help To Practise
+### Websites Help To Practise
 
 - [frontendmentor](https://www.frontendmentor.io/challenges/results-summary-component-CE_K6s0maV)
 - [stylestage](https://stylestage.dev/)
