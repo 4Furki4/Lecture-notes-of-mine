@@ -426,6 +426,10 @@ grid-template-areas:
 
 - Another tip is that you can combine background color and background-image using ``background-blend-mode: multiply - lighten;``
 
+--------------------
+
+## SVG
+
 ## Responsive Design
 
 __Most important mindset you need to take in yourself is preparing mobile design which actually has less complexity firsly. After that, add more complexity using media queries for wider screens like desktop.__
@@ -451,3 +455,15 @@ __Most important mindset you need to take in yourself is preparing mobile design
 - % is based on parent's size.
 
 - to avoid texts that streches all the way, you can use max-width
+
+### Flex
+
+- We need to use a container to be able to use flex items which are the direct children of this flex container.
+
+- Flex items will shrink down to smallest possible size.
+
+- If you want your children take the same size, use ``width:100%`` in children class.
+
+#### Flex images
+
+- If your img is not a flex item, it won't shrink. You can either make it flex item or set all img width to 100%.
