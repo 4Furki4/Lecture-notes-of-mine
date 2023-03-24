@@ -20,12 +20,46 @@ body {
     padding: 0;
 }
 
-main p {
+.text-white {
+    color: white;
+}
 
-    background-color: green;
-
-    width: 500px;
-    height: 100px;
+.btn {
     padding: 1rem;
-    margin: 0;
+    border-radius: 10px;
+    transition: background-color 1s ease-out;
+}
+
+.bg-purple {
+    background-color: var(--clr-primary);
+}
+
+.bg-dark {
+    background-color: #191b1c;
+}
+
+.btn:hover {
+    background-color: #462a68;
+}
+
+.container {
+    width: 500px;
+    height: 500px;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    transition: 1s cubic-bezier(.42, 0, 0, 2.21);
+    animation: left-to-right 1s ease-in infinite alternate;
+}
+
+.container:hover .box {
+    animation-play-state: paused;
+}
+
+@keyframes left-to-right {
+    100% {
+        transform: translate(400px);
+    }
 }

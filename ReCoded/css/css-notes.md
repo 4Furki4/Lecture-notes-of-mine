@@ -527,6 +527,12 @@ grid-template-areas:
 
 ## Animation
 
+### Transition
+
+- It allows us to animate between an element's property changes.
+
+- make sure that you set it base element class, not hover or etc.
+
 ### keyframes
 
 - to define an animation, we need to use this keyword
@@ -558,6 +564,15 @@ grid-template-areas:
 
 - forwards make animation last keyframe step styles remain even if it ends.
 - backwards is visa versa
+
+### animation-direction
+
+- It specifies the direction of the animation when it ends
+- alternate will run the animation states backwards.
+
+### animation-play-state
+
+- it allows us to make the animation paused or running.
 
 ## Responsive Design
 
