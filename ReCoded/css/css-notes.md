@@ -406,6 +406,32 @@ grid-template-areas:
 
 - If you want cards to have the same area, use this in the container: ``grid-auto: 1fr``
 
+## Box Shadow vs Filter: drop-shadow()
+
+### Box shadow
+
+- One nice little info is that box shadow takes color propery as box shadow color :)
+
+- the problem is that it doesn't make shadow for the content, it makes __BOX__ shadow.
+
+### Filter: drop-shadow()
+
+- It takes the same values.
+
+- It makes shadow of the content inside of our element.
+
+- jpeg doesn't support this behaviour.
+
+### Spread
+
+- Even though box shadow takes a value for spread, drop-shadow doesn't take it :(
+
+## Box Shadow performance notes
+
+- It better to use opacity with pseudo classes to animate box shadows. It will reduce repainting. Opacity is way more lightweight than other properties.
+
+-------
+
 ## MAKE SURE YOU DON'T DO THESE BASIC MISTAKES
 
 - Don't overrely on flexbox system, there is grid system out there and some other solutions.
