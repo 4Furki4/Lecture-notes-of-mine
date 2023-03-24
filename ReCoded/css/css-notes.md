@@ -370,6 +370,20 @@ default is all
 
 ````
 
+## Container
+
+- It allows us to control our elements based on their properties, not viewport as mediaqueries.
+
+- It has some properties to active it:
+
+````css
+content > .container{
+  container: <container-name> / [inline-size, size]; /* short way to define both */
+  container-type: [inline-size, size]; /* size type of the container */
+  containner-name: <container-name> /* this allows us to select a specific container to work with. */
+}
+````
+
 ## GRID
 
 ### Grid-Template-Area
