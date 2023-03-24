@@ -370,6 +370,210 @@ default is all
 
 ````
 
+## GRID
+
+### Grid-Template-Area
+
+- This allows to define areas with a unique syntax
+
+````css
+.container{
+grid-template-areas:
+'one one two five' /* this is the first row! names are the columns alligned by names */
+'three four four five'; /* second row with 4 columns */
+}
+````
+
+````css
+.card:first-child{
+  grid-area: one; /* assign the defined area*/
+}
+````
+
+- If you want cards to have the same area, use this in the container: ``grid-auto: 1fr``
+
+## MAKE SURE YOU DON'T DO THESE BASIC MISTAKES
+
+- Don't overrely on flexbox system, there is grid system out there and some other solutions.
+
+- Don't overrely on position obsolute, don't even use them if you're not stuck ! There are relative position and transform: translate etc.
+
+- Name properly your classes and use utility classes for background colors, fonts etc so that you don't repeat youself.
+
+- If you want to have equal flex items, try to use ``flex: 1`` or ``flex-basis: 100%``
+
+- KEEP PRACTISE WHAT YOU LEARN !
+
+### Website Help To Practise
+
+- [frontendmentor](https://www.frontendmentor.io/challenges/results-summary-component-CE_K6s0maV)
+- [stylestage](https://stylestage.dev/)
+  - It provides html document and expects us to come up with creative style. There is opportunity to be published on their site.
+- [css battles](https://cssbattle.dev/) and [code wars](https://www.codewars.com/)
+- [Frontend practise: Cloning Websites](https://www.frontendpractice.com/)
+
+- [Open Source Guide](https://www.firsttimersonly.com/)
+
+## Background Images, Settings
+
+### Basics
+
+- Make sure that you have image which is not that huge by size.
+
+- You can repeat images to make them decorative.
+
+- You can have image cover the area using ``background-size: cover``
+
+- Another tip is that you can combine background color and background-image using ``background-blend-mode: multiply - lighten;``
+
+--------------------
+
+## SVG
+
+- SVG stands for Scalable Vector Graphics which are created by using math!
+- Unlike pngs and other images, they are getting scaled when you zoom in, they seem more flexible and pristine.
+
+- There are 3 ways to use them. You can import them using img tag, use them as inline code or use them by their id.
+  - First 2 way is simple and self explanatory.
+
+````html
+<svg>
+  <use href="#svgId"></use>
+</svg>
+<svg id="svgId" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Edit / Add_Minus_Square"> <path id="Vector" d="M8 12H16M4 16.8002V7.2002C4 6.08009 4 5.51962 4.21799 5.0918C4.40973 4.71547 4.71547 4.40973 5.0918 4.21799C5.51962 4 6.08009 4 7.2002 4H16.8002C17.9203 4 18.4801 4 18.9079 4.21799C19.2842 4.40973 19.5905 4.71547 19.7822 5.0918C20.0002 5.51962 20.0002 6.07967 20.0002 7.19978V16.7998C20.0002 17.9199 20.0002 18.48 19.7822 18.9078C19.5905 19.2841 19.2842 19.5905 18.9079 19.7822C18.4805 20 17.9215 20 16.8036 20H7.19691C6.07899 20 5.5192 20 5.0918 19.7822C4.71547 19.5905 4.40973 19.2842 4.21799 18.9079C4 18.4801 4 17.9203 4 16.8002Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="--darkreader-inline-stroke: #ffffff;" data-darkreader-inline-stroke=""></path> </g> </g></svg>
+````
+
+- Browser think that everything inside svg tag is xml. It is because we're gonna add some xml inside this svg like `<circle/>`
+
+### Shapes
+
+#### Circle
+
+- circle have cx and cy to control center x axis and y axis. It is because we need a center to draw a circle, right ?
+
+#### Rectangle
+
+- created as `<rect/>`
+- It is x and y for rect but it represents the top left of the rectangle.
+
+#### Line
+
+- created as `<line/>`
+- It has x1, y1 and x2 and y2
+- stoke and stroke-width must be used to make it visible.
+
+#### Polygon
+
+- created as `<polygon/>`
+
+- allows us to draw any shape we want.
+
+- It takes points propery with at least 3 xy points
+
+- the last point will be closed with the first point !
+
+- It actually allows us to make more straight lines but curves cant be done.
+
+### Properties
+
+#### width and height
+
+- svg tag has 3 different size property: width, height and viewBox (don't know yet.)
+
+#### Fill
+
+- It corresponds to background property
+- default is black
+- to make it white, set it to none
+
+#### Stroke
+
+- It It corresponds to border
+
+##### stroke-width
+
+- half of the width is outside and the rest is from inside.
+
+#### Radius
+
+- rx and ry is used to give radius to a rectangle
+  - this means that x starts to round at a px, and y starts to round at b px
+
+### Order
+
+- First shape will be below the other shapes that are rendered after. LIFO !
+
+### viewBox
+
+- viewport is the vieable area, while viewbox controls what is viewable is inside this viewable area.
+
+- here is an example: ``viewBox: "0 0 300 300"``
+  - this means that our __visible area__ starting at x-0 y-0.
+  - what viewBox controls what's inside our viewport, viewable area, right ?
+  - so, if I change it to `viewBox: "100 100 300 300"` it means that our viewable area starts at x-100 y-100, so what I can see in viewport is changed !
+  - and the other last 2 value controls the zoom in and out.
+
+- with svg viewBox, we can control what icon inside the svg will be shown using zoom in-out and positioning x-y of our viewport. It is called sprite system.
+
+----
+
+## BEM
+
+- It suggests us to name classes as BLOCK then ELEMENT then style
+  - `BLOCK__element--style`
+  - `.card__title--font-large`
+
+------
+
+## Animation
+
+### Transition
+
+- It allows us to animate between an element's property changes.
+
+- make sure that you set it base element class, not hover or etc.
+
+### keyframes
+
+- to define an animation, we need to use this keyword
+
+````css
+@keyframes animation-name {
+  from {...}
+  to {...}
+  /* or */
+  0% {...} /* start animation with this style and lives until 50% */
+  50% {...} /* start this style at 50% */
+  100% {... } /* ends here */
+}
+````
+
+### animation-name
+
+- use the defined animation
+
+### animation-duration
+
+- how long does it take to run this animation ?
+
+### animation-iteration-count
+
+- how many times is it be itareted ? infinite ? 5 times :D?
+
+### animation-fill-mode
+
+- forwards make animation last keyframe step styles remain even if it ends.
+- backwards is visa versa
+
+### animation-direction
+
+- It specifies the direction of the animation when it ends
+- alternate will run the animation states backwards.
+
+### animation-play-state
+
+- it allows us to make the animation paused or running.
+
 ## Responsive Design
 
 __Most important mindset you need to take in yourself is preparing mobile design which actually has less complexity firsly. After that, add more complexity using media queries for wider screens like desktop.__
@@ -388,3 +592,22 @@ __Most important mindset you need to take in yourself is preparing mobile design
 
 - As a general rule, don't change width and hight to a static value which ruins the responsiveness.
   - If you need more space, use padding!
+
+### Width
+
+- Avoid using static values like px. Instead, use ratios.
+- % is based on parent's size.
+
+- to avoid texts that streches all the way, you can use max-width
+
+### Flex
+
+- We need to use a container to be able to use flex items which are the direct children of this flex container.
+
+- Flex items will shrink down to smallest possible size.
+
+- If you want your children take the same size, use ``width:100%`` in children class.
+
+#### Flex images
+
+- If your img is not a flex item, it won't shrink. You can either make it flex item or set all img width to 100%.

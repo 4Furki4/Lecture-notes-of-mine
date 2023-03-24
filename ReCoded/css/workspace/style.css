@@ -8,22 +8,58 @@
     --clr-bg-secondary: #202223;
 
     font-size: 16px;
+
 }
 
+* {
+    box-sizing: content-box;
+}
 
 body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    position: relative;
-    background-color: var(--clr-bg);
-    color: wheat;
 }
 
-main p {
-    width: clamp(200px, 90%, 1000px);
-    margin-inline: auto;
-    text-align: center;
-    font-size: clamp(1rem, 2vw, 5rem);
+.text-white {
+    color: white;
+}
+
+.btn {
+    padding: 1rem;
+    border-radius: 10px;
+    transition: background-color 1s ease-out;
+}
+
+.bg-purple {
+    background-color: var(--clr-primary);
+}
+
+.bg-dark {
+    background-color: #191b1c;
+}
+
+.btn:hover {
+    background-color: #462a68;
+}
+
+.container {
+    width: 500px;
+    height: 500px;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    transition: 1s cubic-bezier(.42, 0, 0, 2.21);
+    animation: left-to-right 1s ease-in infinite alternate;
+}
+
+.container:hover .box {
+    animation-play-state: paused;
+}
+
+@keyframes left-to-right {
+    100% {
+        transform: translate(400px);
+    }
 }
