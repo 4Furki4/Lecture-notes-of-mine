@@ -1,0 +1,101 @@
+:root {
+    --bg-primary: #F3EED9;
+    --bg-secondary: #222C2A;
+    --bg-accent: #824936;
+    font-family: 'Overpass', sans-serif;
+
+
+}
+
+*::before,
+*::after,
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-primary {
+    color: var(--bg-primary);
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.img {
+    width: 100%;
+}
+
+.header {
+    background-color: var(--bg-primary);
+    padding: 12rem;
+    font-size: 1.5rem;
+}
+
+.container {
+    margin-inline: auto;
+    max-width: min(80%, 1128px);
+}
+
+h1,
+.main__h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--bg-accent);
+}
+
+h1 {
+    font-size: 60px;
+}
+
+.header p {
+    font-size: 1.125rem;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    gap: 4rem;
+}
+
+.main__content {
+    padding: 5rem 0;
+}
+
+.main__content--bg-primary {
+    background-color: var(--bg-primary);
+}
+
+.main__content--bg-secondary {
+    background-color: var(--bg-secondary);
+}
+
+.main__content--bg-accent {
+    background-color: var(--bg-accent);
+}
+
+.main__title {
+    font-size: 2rem;
+    margin-bottom: 4rem;
+}
+
+.main__text {
+    font-size: 1.3125rem;
+}
