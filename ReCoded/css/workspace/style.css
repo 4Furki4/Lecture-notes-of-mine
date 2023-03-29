@@ -24,7 +24,7 @@ body {
     padding: 0;
 }
 
-.text-white {
+/* .text-white {
     color: white;
 }
 
@@ -98,4 +98,12 @@ p::before {
     .card {
         padding: 1rem 2rem;
     }
+} */
+
+.example-1 :is(a, h1, h2) {
+    color: red;
+}
+
+a:is(:hover, :focus) {
+    color: blueviolet;
 }

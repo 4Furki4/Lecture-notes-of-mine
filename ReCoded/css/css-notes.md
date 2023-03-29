@@ -633,6 +633,55 @@ grid-template-areas:
 
 - it allows us to make the animation paused or running.
 
+## New Selectors :is(), :where(), :has()
+
+### is
+
+- It works like a decendent selector
+
+````css
+.example-1 a,
+.example-1 h1,
+.example-1 h2 {
+  color:white;
+}
+/* Is Equal to */
+
+.example-1 :is(a, h1, h2){
+  color:white;
+}
+
+/* It can be used like this as well*/
+
+a:is(:hover, :focus) {
+    color: blueviolet;
+}
+````
+
+### where
+
+- it kills the specificity of what inside of it. It has no specificity and it can provide a way of declaring style that are gonna be overriden hereafter.
+
+### has
+
+- It is simple. It selects parent elemets if it has the given selectors.
+
+````css
+.example-3 :has(.d-flex){
+  /* selects the example-3 classes which has d-flex class. */
+}
+/* But it is more than that, the behaviour changes based on the input */
+
+.example-3 :has(>.subtitle){
+  /* It selects the parent element that has direct child with the subtitle class.*/
+}
+.card__title :has(+.card__subtitle){
+  /* It selects the parent element that has the adjacent sibling with the card__subtitle class */
+}
+````
+
+- is pseudo selector method also have an interesting feature. It applies the highest specificity among the element to all its elements. So even if the multi decendent selector was at the bottom, it wouldn't be applied.
+
 ## Responsive Design
 
 __Most important mindset you need to take in yourself is preparing mobile design which actually has less complexity firsly. After that, add more complexity using media queries for wider screens like desktop.__
