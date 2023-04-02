@@ -710,6 +710,10 @@ __Most important mindset you need to take in yourself is preparing mobile design
 
 - to avoid texts that streches all the way, you can use max-width
 
+
+### Height
+
+- You can use min-height to make sure that your element has a minimum height. If the content is bigger than the min-height, it will be bigger.
 ### Flex
 
 - We need to use a container to be able to use flex items which are the direct children of this flex container.
