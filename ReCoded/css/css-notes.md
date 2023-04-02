@@ -700,6 +700,8 @@ __Most important mindset you need to take in yourself is preparing mobile design
 
 - As a general rule, don't change width and hight to a static value which ruins the responsiveness.
   - If you need more space, use padding!
+- But one thing to note is that images in css are not responsive by default.
+
 
 ### Width
 
@@ -718,4 +720,5 @@ __Most important mindset you need to take in yourself is preparing mobile design
 
 #### Flex images
 
-- If your img is not a flex item, it won't shrink. You can either make it flex item or set all img width to 100%.
+- If your img is not a flex item, it won't shrink. 
+- You can either make it flex item or set all img max-width to 100% which avoids them to be bigger than their original size.
