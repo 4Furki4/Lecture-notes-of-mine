@@ -110,6 +110,32 @@ which is the same as
 ````
 - this will help to modulerize the code and make it more readable.
 
+
+__@IMPORT IS DEPRECATED__
+
+- use `@use` instead of `@import` to import partials.
+
+````scss
+@use 'abstract/variables';
+
+body {
+    background-color: variables.$primary-color; // the difference is that file names have bacome namepspaces.
+    // this avoids any conflicts with other variables with the same name.
+    // you can change the namespace names using _as keyword_ or remove it completely using *.
+}
+````
+- forward is used to pile up the use imports and them allow to import in a row.
+- this should be done in _index.scss file.
+
+````scss
+// in abstanct/_index.scss
+@forward 'abstract/variables';
+@forward 'abstract/fonts';
+// so that you can group your imports and import them in a row.
+
+//in any file
+@use '~/abstract'; // it brings all the imports from the index file.
+````
 ## Functions
 
 ````scss 
