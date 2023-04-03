@@ -97,3 +97,15 @@ which is the same as
 }
 
 ````
+
+## Partials
+
+- Partials are partial scss files that are imported into the main scss file.
+
+- they start with an underscore `_` and are imported with the `@import` keyword.
+
+````scss
+// imagine that I created a scss file called _resets.scss
+@import './variables' // no need to add neither the underscore nor the extension
+````
+- this will help to modulerize the code and make it more readable.

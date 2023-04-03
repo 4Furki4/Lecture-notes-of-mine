@@ -1,12 +1,4 @@
-$primary-color: #f31;
-$secondary-color: #faf;
-$dark-color: #000;
-$font-weight: (
-    "light": 300,
-    "normal": 400,
-    "bolder": 700,
-    "bold": 900
-);
+@import './variables';
 
 body {
     background-color: $primary-color;
