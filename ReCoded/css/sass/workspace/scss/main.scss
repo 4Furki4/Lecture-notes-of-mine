@@ -4,6 +4,11 @@
     @return map-get($font-weight, $weight);
 }
 
+@mixin desktop {
+    @media screen and (min-width: $desktop-range) {
+        @content;
+    }
+}
 
 body {
     background-color: $primary-color;
@@ -27,5 +32,13 @@ body {
         background-color: $primary-color;
         color: #fff;
         font-weight: weight(light);
+    }
+
+    @include desktop() {
+        &__card {
+            background-color: green;
+            color: #000;
+            font-weight: weight(bold);
+        }
     }
 }
