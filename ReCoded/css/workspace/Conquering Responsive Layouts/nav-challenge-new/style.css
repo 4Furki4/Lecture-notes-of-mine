@@ -134,12 +134,14 @@ header {
    
    Works the same :) */
 .nav {
-    visibility: hidden;
+    /* visibility: hidden; */
+    display: none;
 }
 
 .nav--visible {
-    visibility: visible;
+    /* visibility: visible; */
     height: auto;
+    display: block;
     position: relative;
 }
 
