@@ -1,5 +1,10 @@
 @import './variables';
 
+@function weight($weight) {
+    @return map-get($font-weight, $weight);
+}
+
+
 body {
     background-color: $primary-color;
     font-weight: map-get($font-weight, light);
@@ -21,6 +26,6 @@ body {
     &__card:hover {
         background-color: $primary-color;
         color: #fff;
-        font-weight: map-get($font-weight, bold);
+        font-weight: weight(light);
     }
 }

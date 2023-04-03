@@ -109,3 +109,16 @@ which is the same as
 @import './variables' // no need to add neither the underscore nor the extension
 ````
 - this will help to modulerize the code and make it more readable.
+
+## Functions
+
+````scss 
+
+@function fName($name, $arguments, $body) {
+    //code
+}
+
+@function weight($weight) {
+    @return map-get($font-weight, $weight);
+}
+````
