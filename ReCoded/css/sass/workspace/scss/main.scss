@@ -1,5 +1,12 @@
 $primary-color: #f31;
+$font-weight: (
+    "light": 300,
+    "normal": 400,
+    "bolder": 700,
+    "bold": 900
+);
 
 body {
     background-color: $primary-color;
+    font-weight: map-get($font-weight, light);
 }

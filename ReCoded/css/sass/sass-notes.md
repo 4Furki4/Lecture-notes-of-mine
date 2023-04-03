@@ -30,3 +30,19 @@ body {
     background-color: $primary-color;
 }
 ````
+
+## Mapping
+
+- Mapping is a way to create a list of values.
+- It is declared with a `$` sign and a `:` colon.
+````scss
+$font-weight: (
+    "light": 300,
+    "regular": 400,
+    "bold": 700
+)
+
+body {
+    font-weight: map-get($font-weight, "regular");
+}
+````
