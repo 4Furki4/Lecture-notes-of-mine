@@ -177,3 +177,18 @@ body {
     // just your custom css for mobile version without adding media query ^_^
 }
 ````
+
+## Extend
+
+- Extend is a way to extend the properties of a selector to another selector.
+
+````scss
+.main {
+    color: red;
+}
+
+.main__card {
+    @extend .main;
+    background-color: blue;
+}
+````
