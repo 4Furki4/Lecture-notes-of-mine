@@ -109,3 +109,86 @@ which is the same as
 @import './variables' // no need to add neither the underscore nor the extension
 ````
 - this will help to modulerize the code and make it more readable.
+
+## Functions
+
+````scss 
+
+@function fName($name, $arguments, $body) {
+    //code
+}
+
+@function weight($weight) {
+    @return map-get($font-weight, $weight);
+}
+````
+
+## Mixins
+
+- Mixins are a way to create reusable code like functions. 
+
+````scss
+
+@mixin mixinName{
+    //code to be reused
+}
+
+.main {
+    @include mixinName;
+}
+// they can also take arguments
+@mixin mixinName($arg1, $arg2){
+    //code to be reused
+    property: $arg1;
+    property: $arg2;
+}
+.main {
+    @include mixinName($arg1, $arg2);
+}
+````
+- Mixins can be used with if and else. Let me give an example using dark-light mode.
+
+````scss
+@mixin dark-mode($color) {
+    @if $color == "dark" {
+        background-color: black;
+        color: white;
+    } @else if $color == "light" {
+        background-color: white;
+        color: black;
+    }
+}
+
+body {
+    @include dark-mode("dark");
+}
+````
+
+- Another example with mixins using media queries:
+
+````scss
+@mixin mobile {
+    @media only screen and (max-width: 600px) {
+        @content; // @content is used to include the content of the mixin
+    }
+}
+
+@include mobile {
+    // just your custom css for mobile version without adding media query ^_^
+}
+````
+
+## Extend
+
+- Extend is a way to extend the properties of a selector to another selector.
+
+````scss
+.main {
+    color: red;
+}
+
+.main__card {
+    @extend .main;
+    background-color: blue;
+}
+````

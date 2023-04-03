@@ -16,5 +16,12 @@ body {
 .main__card:hover {
   background-color: #f31;
   color: #fff;
-  font-weight: 900;
+  font-weight: 300;
+}
+@media screen and (min-width: 1024px) {
+  .main__card {
+    background-color: green;
+    color: #000;
+    font-weight: 900;
+  }
 }/*# sourceMappingURL=main.css.map */
