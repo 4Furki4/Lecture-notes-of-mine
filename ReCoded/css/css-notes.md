@@ -187,6 +187,17 @@ a:visited {
 
 - It overrides the cross axis position of the element
 
+
+### Flex Basis
+
+- Each flex item has flex-basis value which is auto by default.
+
+- ``Flex-basi: auto`` says that go and look the value of width. So it is based on width value. And ``flex-basis: 200px`` doest the same effect as ``width:200px``
+
+- But when we set flex-direction to column, ``flex-basis:200px`` width effects both width and height !
+- the reason why this happens is hidden in main axis! when we set our direction to column, main axis become the y axis. So, our height is being set to 200px and our width adapts itself!
+
+- __Note that max width and height will override flex-basis value in both situation. min width and height will override all of them__
 ---
 
 ## Position
