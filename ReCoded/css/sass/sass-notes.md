@@ -1,4 +1,4 @@
-# Sass Notes
+# Scss Notes
 
 ## Setup
 
@@ -45,4 +45,55 @@ $font-weight: (
 body {
     font-weight: map-get($font-weight, "regular");
 }
+````
+
+## Nesting
+
+- Nesting is a way to group selectors together.
+
+````scss
+.main{
+    p {
+        color: red;
+    }
+}
+which is the same as
+.main p {
+    color: red;
+}
+
+````
+
+- & sign is used to avoid repetition of the same selector.
+
+````scss
+.main{
+    .main__card {
+        color: red;
+    }
+}
+//& sign usage:
+.main{
+    //other css here
+    &__card { // & = .main
+        color: red;
+    }
+}
+//but this compiles to:
+.main__card {
+    color: red;
+}
+
+//If you want the .main .main-card, we need to use interpolation
+.main{
+    #{&__card} { // # represents interpolation and gets the all selectors before main__card
+        color: red;
+    }
+}
+
+//which compiles to:
+.main .main__card {
+    color: red;
+}
+
 ````

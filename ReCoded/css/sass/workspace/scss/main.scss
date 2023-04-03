@@ -1,4 +1,6 @@
 $primary-color: #f31;
+$secondary-color: #faf;
+$dark-color: #000;
 $font-weight: (
     "light": 300,
     "normal": 400,
@@ -9,4 +11,24 @@ $font-weight: (
 body {
     background-color: $primary-color;
     font-weight: map-get($font-weight, light);
+}
+
+.main {
+    &__card {
+        background-color: $secondary-color;
+        font-weight: map-get($font-weight, normal);
+        transition: background-color, color 0.5s ease-in-out;
+    }
+
+    #{&}__card {
+        background-color: $dark-color;
+        color: #fff;
+        font-weight: map-get($font-weight, bolder);
+    }
+
+    &__card:hover {
+        background-color: $primary-color;
+        color: #fff;
+        font-weight: map-get($font-weight, bold);
+    }
 }
