@@ -18,3 +18,15 @@
     ]
 }
 ````
+
+## Variables
+- Variables are declared with a `$` sign without any selector.
+- They are complied to actual values
+
+````scss	
+$primary-color: #f31;
+
+body {
+    background-color: $primary-color;
+}
+````
