@@ -9,8 +9,21 @@
 
 */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -35,7 +48,7 @@ h1 {
 .btn {
     display: inline-block;
     text-decoration: none;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     color: #23424A;
     font-weight: 900;
     background-color: #38CFD9;
@@ -45,7 +58,7 @@ h1 {
 
 .btn:hover,
 .btn:focus {
-    opacity: .75; 
+    opacity: .75;
 }
 
 .container {
@@ -78,7 +91,7 @@ header {
     background: #072A2D;
     color: white;
     transition: opacity 250ms ease;
-    
+
     position: absolute;
     left: 0;
 }
@@ -121,16 +134,16 @@ header {
    
    Works the same :) */
 .nav {
-    visibility: hidden;
-    height: 0;
-    position: absolute;
+    /* visibility: hidden; */
+    display: none;
 }
 
 .nav--visible {
-    visibility: visible;
+    /* visibility: visible; */
     height: auto;
+    display: block;
     position: relative;
-} 
+}
 
 
 .logo {
@@ -170,7 +183,7 @@ header {
 
 @media (min-width: 800px) {
 
-    
+
     .nav-toggle {
         display: none;
     }
@@ -190,13 +203,30 @@ header {
     .hero__text {
         width: 62%;
     }
-    
+
+    .nav__list {
+        gap: 1em;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav__list--primary {
+        margin-inline: auto;
+    }
+
+    .nav {
+        visibility: visible;
+        display: flex;
+        height: auto;
+        align-items: center;
+    }
+
     .hero__img {
         width: 32%;
         align-self: flex-start;
         margin: 0;
     }
-    
+
     .primary-content {
         width: 62%;
     }
@@ -204,6 +234,6 @@ header {
     .sidebar {
         width: 32%;
     }
-    
-    
+
+
 }
