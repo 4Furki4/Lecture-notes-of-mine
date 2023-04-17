@@ -155,3 +155,65 @@
 - `HDEL key field1 field2 field3` : key'e atanan değerden field1, field2, field3 değerlerini siler.
 
 - `HGETALL key`: key'e atanan değerleri döndürür.
+
+
+## ASP.NET In-Memory Caching
+
+- __AddMemoryCache__ servisini uygulamaya ekleyip,
+- __IMemoryCache__ arayüzü aracılığıyla In-Memory Caching işlemlerini yapabilirsin.
+
+### Set(key, value)<__T__>
+
+- Girilen key'e karşılık verilen değeri in memory caching'e kaydetmeyi sağlar ve set işlemi sonucunda verilen değeri geri döner.
+
+### Get(Key)
+
+### TryGetValue<__T__>(key, out T value)
+
+### Expiration
+
+#### Absolute 
+- Verinin NET ömrüdür. Bu süreden aşıldığında veri silinir.
+
+### Sliding
+- Verinin belli bir periyot içerisinde elde edilmesiyle ömrünün uzatılmasını sağlar. 
+- Absolute ömrü verilmiş bir veri, en fazla obsolute ömrü kadar yaşar.
+- Yani 1 ay obsolute ömrü olan ve sliding ömdür 1 gün olan bir veriye her gün erişildiği taktirde bu veri 30 gün yaşar. 1 günden fazla erişilmezse, 30 gün beklemeksizin bu veri cacheten silinir.
+
+### MemoryCacheEntryOptions
+
+- Yeni bir key-value eklerken, bir MemoryCacheEntryOptions instance'ını vererek verinin ömrünü ayarlayabiliriz.
+- Örnek:
+````csharp
+string valueSet= cache.Set<string>("name", value, options: new MemoryCacheEntryOptions
+            {
+/* DateTimeOffset */ AbsoluteExpiration = DateTimeOffset.UtcNow.AddDays(1),
+   /* TimeSpan */    SlidingExpiration = TimeSpan.FromHours(1)
+            });
+````
+
+## Redis ile Distributed Caching
+
+- Öncelikle __StackExchangeRedis__ kütüphanesini uygulamaya yükleyip
+
+- __AddStackExchangeRedisCache__ servisini uygulamaya ekle.
+  - Servisi çağırırken opt pattern ile ``opt.Configuration = "localhost vb..."`` ile redis'i bağlayabilirsin.
+
+- __IDistributedCache__ arayüzünü IoC'den almak için constructor'dan alıp metotları kullanmaya hazır hale getiricez
+
+### Metotlar
+- SetString, SetStringAsync, GetString, GetStringAsync metotlarıyla string value ekleyebiliriz.
+
+  - __NOT :__ Bu metotlarla verileri rediste Hash tipinde ekliyoruz.
+
+### Ömür
+
+- __DistributedCacheEntryOptions__ instance'ı vererek ömrünü ayarlayabiliyoruz.
+- Örnek:
+```` csharp
+await distributedCache.SetStringAsync("name", name, options: new DistributedCacheEntryOptions
+{
+    AbsoluteExpiration = DateTimeOffset.UtcNow.AddHours(1),
+    SlidingExpiration = TimeSpan.FromMinutes(10)
+});
+````
