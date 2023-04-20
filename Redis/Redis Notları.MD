@@ -217,3 +217,60 @@ await distributedCache.SetStringAsync("name", name, options: new DistributedCach
     SlidingExpiration = TimeSpan.FromMinutes(10)
 });
 ````
+
+## Redis Pub/Sub Özelliği
+### Pub/Sub Nedir ?
+
+- Publisher ve Subscriber arasında mesajlaşma işlemidir. Publisher mesajı yayınlar ve Subscriber mesajı alır.
+
+### Pub/Sub Özelliğini Kullanmanın Yöntemleri
+
+#### Redis CLI
+
+- Öncelikle, redis cli ile pub sub kullanmanın avantajı, hızlıca bir mesaj yayınlayıp, yayınlanan mesajı alabilmemizi veya test için hızlıca kullanabilmemizi sağlamasıdır.
+
+- Redis CLI ile redis sunucusuna bağlandıktan sonra:
+  - `SUBSCRIBE channel` : channel ismi verilen kanala abone olur.
+  - `PUBLISH channel message` : channel ismi verilen kanala message mesajını yayınlar.
+
+#### Redis Insight
+
+- Redis'in kendi GUI arayüzü olan Redis Insight ile de pub sub kullanabiliriz.
+- Soldaki Pub/Sub sekmesinden kanal oluşturabilir, yayın yapabilir ve yayınlanan mesajları alabiliriz.
+
+#### Redis API
+
+- Öncelikle ilgili projede __StackExchange.Redis__ kütüphanesini yüklememiz gerekiyor.
+
+- Kütüphaneyi yükledikten sonra
+```` csharp	
+ConnectionMultiplexer connection =  await ConnectionMultiplexer.ConnectAsync("localhost:2002");
+// bu sayede redis sunucusuna bağlanmış ve bir ConnectionMultiplexer instance'ı oluşturmuş olduk.
+````
+- bu connection adlı  instance ile GetSubscriber() metodu ile bir ISubscriber instance'ı oluşturabiliriz.
+```` csharp
+ISubscriber subscriber = connection.GetSubscriber();
+// ISubscriber tipindeki instance'ımız ile hem publish hem subscribe metotlarını kullanarak mesaj yayınlayabilir veya alabiliriz.
+````
+- Mesaj yayınlayabilmek için:
+```` csharp
+await subscriber.PublishAsync("channel-net", "Hello World!");
+````
+- Mesaj alabilmek için:
+```` csharp
+await subscriber.SubscribeAsync("channel-net", (channel, message) =>
+{
+    Console.WriteLine($"Channel: {channel}, Message: {message}");
+});
+````
+
+### Redis Pattern Matching Subscription
+
+- Belli bir pattern'e uyan kanallara abone olmak için kullanılır.
+  - Misal, news.* pattern'ına uyan kanallara abone olmamızı sağlar
+    - news.kanal1, news.bbc gibi kanalların yayınlarını alır.
+    - book.top-seller, book.least-seller gibi kanalların yayınlarını alamaz.
+
+- redis CLI ile kullanımı:
+  - `PSUBSCRIBE pattern` : pattern'e uyan kanallara abone olur.
+  - `PUBLISH channel message` : channel ismi verilen kanala message mesajını yayınlar.
