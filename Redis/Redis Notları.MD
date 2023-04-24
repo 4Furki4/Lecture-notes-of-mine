@@ -274,3 +274,27 @@ await subscriber.SubscribeAsync("channel-net", (channel, message) =>
 - redis CLI ile kullanımı:
   - `PSUBSCRIBE pattern` : pattern'e uyan kanallara abone olur.
   - `PUBLISH channel message` : channel ismi verilen kanala message mesajını yayınlar.
+
+## Redis Replication
+
+- Verileri birden fazla redis sunucusunda tutmak için kullanılır, bu sayede verilerin istenmeyen şekilde kaybolmasını önler. Bu sayede verilerin tutulduğu sunucuların birinde sorun olsa da verilerin kaybolmamasını sağlar ve kesintisiz bir şekilde verileri kullanmaya devam edebiliriz.
+
+- Kopyası, yani replikası alınacak sunucumuza __master__ deriz.
+- Kopya sunucumuza ise __slave__ deriz.
+
+Not: Bazen bu master ve slave arasındaki bağlantı kopabilir. Bu durumda slave sunucu, master sunucuyla yeniden bağlantı kurana kadar verileri tutamaz. Bu durumda verilerin kaybolmasına neden olabilir. Bu durumu önlemek için __Redis Sentinel__ kullanılır.
+
+- Slave'deki veriler sadece master'daki verilerin kopyası olacağı için slave sunucu üzerinde veri değişikliği yapamayız, readonly'dir. Yani slave sunucu üzerinde veri değişikliği yapmak istediğimizde, bu değişikliği master sunucuya göndermemiz gerekiyor.
+
+- Slave sunucular sayesinde master sunucudaki verileri bozmadan testler yapabiliriz.
+
+### Redis Replicate
+
+- Bir redis sunucusunu slave yapmak için öncelikle master olacak sunucunun IP adresini ve port'unu bilmemiz gerekiyor.
+
+- Daha sonraysa şu komutla slave sunucusunu ayarlıyoruz:
+````cmd
+docker exec -it <containerName> redis-cli slaveof <IP adresi> <port>
+````
+
+- Ayrıca ``info replication`` diyerek replication bilgilerine erişebiliriz.
