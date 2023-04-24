@@ -192,7 +192,7 @@ a:visited {
 
 - Each flex item has flex-basis value which is auto by default.
 
-- ``Flex-basi: auto`` says that go and look the value of width. So it is based on width value. And ``flex-basis: 200px`` doest the same effect as ``width:200px``
+- ``Flex-basi: auto`` says that go and look the value of width. So it is based on width value. And ``flex-basis: 200px`` does the same effect as ``width:200px``
 
 - But when we set flex-direction to column, ``flex-basis:200px`` width effects both width and height !
 - the reason why this happens is hidden in main axis! when we set our direction to column, main axis become the y axis. So, our height is being set to 200px and our width adapts itself!
