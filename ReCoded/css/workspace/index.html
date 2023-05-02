@@ -40,8 +40,12 @@ dialog[open] {
         <p>
             Are you sure to log out ?
         </p>
-        <button class="btn btn--modal-yes">YES</button>
-        <button class="btn btn--modal-no">No</button>
+        <form method="dialog">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+            <button class="btn btn--modal-yes">YES</button>
+            <button class="btn btn--modal-no" formmethod="dialog">No</button>
+        </form>
     </dialog>
     <script>
         const modal = document.querySelector('dialog')

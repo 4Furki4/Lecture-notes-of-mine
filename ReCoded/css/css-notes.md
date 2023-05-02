@@ -748,6 +748,7 @@ __Most important mindset you need to take in yourself is preparing mobile design
 
 - Kevin showed us a real world example that suggests letting browser to decide sizes. He first used ``flex-basis:33.333%`` which causes issues when we need more or less content in the container. He set the basis to 100% so that browser knows they want to extend themself as much as possible.
 
+- He also used grid system and use the same logic above. He set ``grid-template-columns: repeat(autofit, minmax(12rem, 1fr))`` so that browser set the cards size based on the situation ! Awesome.
 
 ## Model and Dialog with pure HTML and CSS
 
@@ -820,7 +821,7 @@ __Most important mindset you need to take in yourself is preparing mobile design
 ````js
 
 modal.addEventListener("click", e => {
-    const dialogDimensions = modal.getBoundingClientRect()
+    const dialogDimensions = modal.getBoundingClientRect() // returns DOMRect object containing the position and size information of the element
     if (
         e.clientX < dialogDimensions.left ||
         e.clientX > dialogDimensions.right ||
@@ -832,5 +833,8 @@ modal.addEventListener("click", e => {
 })
 
 ````
+### Forms in dialogs
 
-- He also used grid system and use the same logic above. He set ``grid-template-columns: repeat(autofit, minmax(12rem, 1fr))`` so that browser set the cards size based on the situation ! Awesome.
+- There is a special method: ``method:"dialog"` which prevents losing the data when we close dialog.
+
+- Or ``formmethod`` can be used in submit button which is the same.
