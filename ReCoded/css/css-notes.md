@@ -187,6 +187,17 @@ a:visited {
 
 - It overrides the cross axis position of the element
 
+
+### Flex Basis
+
+- Each flex item has flex-basis value which is auto by default.
+
+- ``Flex-basi: auto`` says that go and look the value of width. So it is based on width value. And ``flex-basis: 200px`` doest the same effect as ``width:200px``
+
+- But when we set flex-direction to column, ``flex-basis:200px`` width effects both width and height !
+- the reason why this happens is hidden in main axis! when we set our direction to column, main axis become the y axis. So, our height is being set to 200px and our width adapts itself!
+
+- __Note that max width and height will override flex-basis value in both situation. min width and height will override all of them__
 ---
 
 ## Position
@@ -700,6 +711,8 @@ __Most important mindset you need to take in yourself is preparing mobile design
 
 - As a general rule, don't change width and hight to a static value which ruins the responsiveness.
   - If you need more space, use padding!
+- But one thing to note is that images in css are not responsive by default.
+
 
 ### Width
 
@@ -708,6 +721,10 @@ __Most important mindset you need to take in yourself is preparing mobile design
 
 - to avoid texts that streches all the way, you can use max-width
 
+
+### Height
+
+- You can use min-height to make sure that your element has a minimum height. If the content is bigger than the min-height, it will be bigger.
 ### Flex
 
 - We need to use a container to be able to use flex items which are the direct children of this flex container.
@@ -718,7 +735,18 @@ __Most important mindset you need to take in yourself is preparing mobile design
 
 #### Flex images
 
-- If your img is not a flex item, it won't shrink. You can either make it flex item or set all img width to 100%.
+- If your img is not a flex item, it won't shrink. 
+- You can either make it flex item or set all img max-width to 100% which avoids them to be bigger than their original size.
+
+
+## Problem With Percentages
+
+### Grid Layout
+
+- When we want to set grid columns by percentage values like ``grid-template-columns: 50% 50%;``, It will cause issues once gap or any space value is used. 
+- You can combine percentages or use fr values in which cases.
+
+- Kevin showed us a real world example that suggests letting browser to decide sizes. He first used ``flex-basis:33.333%`` which causes issues when we need more or less content in the container. He set the basis to 100% so that browser knows they want to extend themself as much as possible.
 
 
 ## Model and Dialog with pure HTML and CSS
@@ -804,3 +832,5 @@ modal.addEventListener("click", e => {
 })
 
 ````
+
+- He also used grid system and use the same logic above. He set ``grid-template-columns: repeat(autofit, minmax(12rem, 1fr))`` so that browser set the cards size based on the situation ! Awesome.
