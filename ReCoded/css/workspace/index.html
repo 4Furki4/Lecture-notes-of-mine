@@ -9,83 +9,64 @@
     <link rel="stylesheet" href="./style.css">
     <script src="https://kit.fontawesome.com/19163b6b71.js" crossorigin="anonymous"></script>
 </head>
+<style>
+/* .dialog{
+    transition: all 10s ease-in;
+}
 
+.dialog::backdrop{
+    background-color: grey;
+    opacity: .5;
+} */
+dialog[open] {
+    -webkit-animation: myFadeIn 1s ease normal;
+  }
+  
+@-webkit-keyframes myFadeIn{
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>
 <body>
-
-    <!-- <svg fill="#31312a" stroke="red" stroke-width="1" style="margin: 100px;" width="25" height="25" viewBox="0 0 25 25">
-        <polygon points="5 0, 20 0, 20 20,12.5 10, 5 20" />
-    </svg> -->
-
-
-    <!-- <button class="btn bg-dark text-white">CLICK ME</button> -->
-    <!-- <div class="wrap">
-        <div class="container">
-            <h1>Lorem, ipsum.</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente voluptate voluptatibus ullam soluta.
-                Cum, veritatis ipsam commodi iusto ducimus in quibusdam dolore. Soluta vero veniam qui ad. Nulla,
-                voluptatibus magni.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente voluptate voluptatibus ullam soluta.
-                Cum, veritatis ipsam commodi iusto ducimus in quibusdam dolore. Soluta vero veniam qui ad. Nulla,
-                voluptatibus magni.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente voluptate voluptatibus ullam soluta.
-                Cum, veritatis ipsam commodi iusto ducimus in quibusdam dolore. Soluta vero veniam qui ad. Nulla,
-                voluptatibus magni.</p>
-        </div>
-        <div class="container">
-            <div class="card card--dark">
-                <div class="card__title">
-                    <h2>Card!</h2>
-                </div>
-                <div class="card__body">
-                    <h3>Card Body</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio eos incidunt, labore voluptatibus,
-                        vitae cupiditate similique quo explicabo </p>
-                    <p>eaque facere adipisci necessitatibus aperiam. A
-                        consequuntur, vero sunt tempore, pariatur aspernatur distinctio corrupti molestias obcaecati
-                        voluptas, accusantium minima nostrum ea cumque!</p>
-                </div>
-            </div>
-            <div class="card card--dark">
-                <div class="card__title">
-                    <h2>Card!</h2>
-                </div>
-                <div class="card__body">
-                    <h3>Card Body</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio eos incidunt, labore voluptatibus,
-                        vitae cupiditate similique quo explicabo </p>
-                    <p>eaque facere adipisci necessitatibus aperiam. A
-                        consequuntur, vero sunt tempore, pariatur aspernatur distinctio corrupti molestias obcaecati
-                        voluptas, accusantium minima nostrum ea cumque!</p>
-                </div>
-            </div>
-            <div class="card card--dark">
-                <div class="card__title">
-                    <h2>Card!</h2>
-                </div>
-                <div class="card__body">
-                    <h3>Card Body</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio eos incidunt, labore voluptatibus,
-                        vitae cupiditate similique quo explicabo </p>
-                    <p>eaque facere adipisci necessitatibus aperiam. A
-                        consequuntur, vero sunt tempore, pariatur aspernatur distinctio corrupti molestias obcaecati
-                        voluptas, accusantium minima nostrum ea cumque!</p>
-                </div>
-            </div>
-        </div>
-
-    </div> -->
-    <div class="example-1">
-        <p class="example-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo qui inventore ea, iusto
-            omnis, hic harum,
-            molestias aliquam iure itaque adipisci? Molestiae incidunt tempora porro doloribus facere facilis,
-            laudantium tenetur!s
+    <button class="btn btn--log-out">
+        LOG OUT
+    </button>
+    <dialog class="dialog">
+        <div>This is a model example with HTML dialog element</div>
+        <p>
+            Are you sure to log out ?
         </p>
-        <h1 class="example-1">Lorem, ipsum dolor.</h1>
-        <h2 class="example-1">Lorem ipsum dolor sit.</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, hic <a class="example-1" href="#">Lorem,
-                ipsum.</a>
-            tempora! Deserunt rerum vitae laudantium quia odio aspernatur quaerat in?</p>
-    </div>
+        <button class="btn btn--modal-yes">YES</button>
+        <button class="btn btn--modal-no">No</button>
+    </dialog>
+    <script>
+        const modal = document.querySelector('dialog')
+        const logOutBtn = document.querySelector('.btn--log-out');
+        const modalYesBtn = document.querySelector('.btn--modal-yes')
+        const modalNoBtn = document.querySelector('.btn--modal-no')
+
+        logOutBtn.addEventListener('click', () => {
+            modal.showModal();
+        })
+        modalNoBtn.addEventListener('click', () => {
+            modal.close()
+        })
+        modal.addEventListener("click", e => {
+            const dialogDimensions = modal.getBoundingClientRect()
+            if (
+                e.clientX < dialogDimensions.left ||
+                e.clientX > dialogDimensions.right ||
+                e.clientY < dialogDimensions.top ||
+                e.clientY > dialogDimensions.bottom
+            ) {
+                modal.close()
+            }
+            })
+    </script>
 </body>
 
 </html>
