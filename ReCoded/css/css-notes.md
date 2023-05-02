@@ -719,3 +719,88 @@ __Most important mindset you need to take in yourself is preparing mobile design
 #### Flex images
 
 - If your img is not a flex item, it won't shrink. You can either make it flex item or set all img width to 100%.
+
+
+## Model and Dialog with pure HTML and CSS
+
+- HTML has an element called dialog which allows us to use dialogs and modals to be able to interact with user.
+
+- Developers used to create their own dialogs and modals but now, HTML has dialog elemet with default styles and special functions to show or hide a dialog or a modal.
+
+### How to use it
+
+- add a dialog and button element into your HTML document. We will open our dialog using the log out button.
+````html
+<button class="btn btn--log-out">
+        LOG OUT
+</button>
+<dialog>
+        <div>This is a model example with HTML dialog element</div>
+        <p>
+            Are you sure to log out ?
+        </p>
+        <button class="btn btn--modal-yes">YES</button>
+        <button class="btn btn--modal-no">No</button>
+</dialog>
+
+````
+
+- we'll use js to show dialog as a dialog or a modal. There are 2 functions available.
+
+````js
+    const modal = document.querySelector('dialog')
+    const logOutBtn = document.querySelector('.btn--log-out');
+    const modalYesBtn = document.querySelector('.btn--modal-yes')
+    const modalNoBtn = document.querySelector('.btn--modal-no')
+
+    logOutBtn.addEventListener('click', () => {
+        modal.showModal(); // shows dialog element as a modal
+        modal.show() // shows dialog element as a dialog
+    })
+    modalNoBtn.addEventListener('click', () => {
+        modal.close()
+    })
+````
+
+- The difference between dialog and modal is that dialog allows us to interact with other elements even though it's open. However, modals don't allow us to interact.
+
+- The thing of using dialog element is that it has default position, shortcut keys and overlay values.
+
+### Custom Style
+
+- TBH, The default looks ugly but useful. We can customize it with some pseudo classes in css.
+
+- The slight background color can be customized using psuedo class named ``::backdrop``.
+
+````css
+.dialog{
+  color: aliceblue;
+}
+
+.dialog::backdrop{
+    background-color: grey;
+    opacity: .5;
+}
+````
+
+### Closing Modal by clicking outside
+
+- dialog element has no built in feature to close itself by clicking outside of the dialog.
+
+- This code will provide the functionality. 
+>https://blog.webdevsimplified.com/2023-04/html-dialog/
+````js
+
+modal.addEventListener("click", e => {
+    const dialogDimensions = modal.getBoundingClientRect()
+    if (
+        e.clientX < dialogDimensions.left ||
+        e.clientX > dialogDimensions.right ||
+        e.clientY < dialogDimensions.top ||
+        e.clientY > dialogDimensions.bottom
+    ) {
+        modal.close()
+    }
+})
+
+````
