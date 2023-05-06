@@ -1,0 +1,81 @@
+html{
+    color-scheme: dark;
+  }
+  
+  body{
+    display: grid;
+    min-height: 100dvh;
+    place-items: center;
+    font-size: 4rem;
+  }
+  button{
+    font-size: 4rem;
+    padding: 2.5rem 4rem;
+    border: 0;
+    border-radius: 100px;
+    background: hsl(185, 53%, 15%);
+    border: 0.1em solid hsl(185, 53%, 34%);
+    cursor: pointer;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    transition: background 500ms;
+  }
+  /*button:hover,
+  button:focus-visible {
+    background: hsl(185, 53%, 34%);
+  }*/
+  button > span {
+    position: absolute;
+    width: 33.3%;
+    height: 100%;
+    z-index: -1;
+  }
+  button>:first-child{
+    left: 0;
+    top: 0;
+  }
+  button>:last-child{
+    right: 0;
+    top: 0;
+  }
+  button::before{
+    content: '';
+    position: absolute;
+    width: 10%;
+    aspect-ratio: 1;
+    background: hsl(200 60% 20%);
+    background: hsl(185, 53%, 34%);
+    inset: 0;
+    margin: auto;
+    border-radius: 50%;
+    transition: transform 1000ms;
+    opacity: 0;
+    z-index: -1;
+  }
+  button:hover::before{
+    transform: scale(20);
+    opacity: 1;
+    transition: transform 1000ms;
+  }
+  button:has(:first-child:hover)::before{
+    margin-left:0;
+    transition: transform 500ms;
+  }
+  button:has(:last-child:hover)::before{
+    margin-right:0;
+    transition: transform 500ms;
+  }
+  button:active::before{
+    transform: scale(0);
+    opacity: 0;
+    transition: all 500ms;
+  }
+  button:has(:first-child:active)::before{
+    margin-left:0;
+    transition: all 250ms;
+  }
+  button:has(:last-child:active)::before{
+    margin-right:0;
+    transition: all 250ms;
+  }
