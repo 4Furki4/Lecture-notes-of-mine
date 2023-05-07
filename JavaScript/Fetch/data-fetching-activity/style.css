@@ -23,6 +23,7 @@ body{
 .welcome{
     display: grid;
     place-items: center;
+    text-align: center;
     padding-top: 2.5rem;
 }
 .card {
@@ -57,6 +58,34 @@ body{
 }
 .pair{
     padding: .5rem 0rem;
+}
+.form-wrapper{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    
+}
+.input-field{
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+.input-field > input{
+    padding: 0.25rem;
+    border-color: transparent;
+}
+form{
+    border: 2px solid;
+    border-radius: 10px;
+    width: min(80%, 400px);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 2rem;
+}
+form button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
 }
 h1{
     font-size: 2.5rem;

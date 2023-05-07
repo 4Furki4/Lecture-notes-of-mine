@@ -13,6 +13,7 @@ BONUS: Do a POST request to the https://jsonplaceholder.typicode.com/posts endpo
 */
 document.addEventListener('DOMContentLoaded', function() {
     const dialog = document.querySelector('dialog')
+    
     const dialogBtn = document.querySelector('.dialog__btn')
     dialogBtn.addEventListener('click', () => {
         dialog.close()
@@ -40,16 +41,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const cardsEl = document.querySelector('.cards')
         card = document.createElement('div')
         card.classList.add('card')
-        // const {address:{street, suite, city},
-        // company:{ catchPhrase, bs}, email, name, phone, username, website} = user
         for(let key in user){
             if(key === 'address' || key === 'company'){
                 continue
             }
             if(key === 'id'){
-                // const div = document.createElement('span')
-                // div.classList.add('card-id')
-                // div.textContent = user[key]
                 card.setAttribute('data-id', user[key])
                 continue
             }
@@ -64,6 +60,26 @@ document.addEventListener('DOMContentLoaded', function() {
             div.appendChild(spanValue)
             card.appendChild(div)
             cardsEl.appendChild(card)
+        }
     }
-}
+    const formEl = document.querySelector('form')
+    formEl.addEventListener('submit', async (e) => {
+        e.preventDefault()
+        const data = {
+            name: e.target['name'].value,
+            surname:  e.target['surname'].value,
+            email: e.target['email'].value,
+            phone: e.target['phone'].value
+        }
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+            body: JSON.stringify(data),
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+        const dialogMessage = document.querySelector('.dialog__message')
+        dialogMessage.textContent = response.status === 201 ? 'User added successfully' : 'Something went wrong'
+        dialog.showModal()
+    })
 })
