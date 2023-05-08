@@ -263,3 +263,7 @@ public class HomeController : Controller
 ### OthersInGroup
 
 - Bildiride bulunan client haricinde gruptaki diğer tüm client'lara bildiride bulunmayı sağlayan metottur.
+
+## User ve Users
+
+- Doğrulanmış kullanıcılar (authenticated users) için kullanılan metotlardır, detayları signalR ile authentication ve authorization kısmında yazacağım.
