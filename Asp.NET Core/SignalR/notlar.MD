@@ -190,3 +190,21 @@ public class HomeController : Controller
 - Bu interface'i ``MyHub : Hub<IMyHub>`` olarak vermemiz gerekiyor.
 
 - Bu şekilde yapınca `Clients.All.` yapınca imzasını tanımladığımız metotlar gelecektir ve client tarafında interface'de tanımladığımız isimdeki fonksiyonlar çağrılacaktır.
+
+## Client Türleri
+
+- `Clients.` dediğimizde 3 tür client gelir: All, Caller, Others
+
+### Caller
+
+- _Sadece_ server'a yani hub'a bildirim gönderen client'la iletişim kurmaya yarar.
+
+### All
+
+- Hub'a bağlı olan tüm client'larla iletişim kurmaya yarar
+
+### Others
+
+- Hub'a bağlı olan tüm client'lardan sadece bildirimi yapan client hariciyle iletişim kurmaya yarar.
+
+- Tabii, client'ta function çağırmaya yarayan ``SendAsync`` fonksiyonumuz, client türlerine göre davranış değiştirmektedir.
