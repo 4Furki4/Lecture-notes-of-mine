@@ -208,3 +208,46 @@ public class HomeController : Controller
 - Hub'a bağlı olan tüm client'lardan sadece bildirimi yapan client hariciyle iletişim kurmaya yarar.
 
 - Tabii, client'ta function çağırmaya yarayan ``SendAsync`` fonksiyonumuz, client türlerine göre davranış değiştirmektedir.
+
+## Özelleştirilmiş Hub Metotları
+
+
+### AllExcept
+
+- Belirtilen client'lar hariç server'a bağlı client'lara bildiride bulunmaya yarar.
+
+- ``Clients.AllExcept(IEnumerable Ids)`` şeklinde dışlanacak Id'leri alan bir collection parametre alır. Yahut string şeklinde tekil değer de alabilir.
+
+### Client
+
+- Server'a bağlı olan client'lardan sadece belirtilen connectionId'ye sahip olan client'a bildiride bulunmaya yarar.
+
+- `Clients.Client("zYTi_DilashZq2bY-CMJzg")...` şeklinde kullanılır.
+
+
+### Clients
+
+- Server'a bağlı olan client'lardan belirlilenlen clientId'lere sahip olan client'lara bildiride bulunmaya yarar.
+
+### Group
+
+- Belirtilen grubtaki tüm clientlara bildiride bulunmaya yarar.
+
+- Bunu yapabilmek için öncelikle grup oluşturmalıyız ve bu gruplara client'ların abone olabilmelerini sağlamalıyız.
+
+- Group oluşturmamızı ve grouplara client'ların abone olmasını sağlayan Group property'sini kullanırız
+````csharp
+    public async Task addGroup(string connectionId, string groupName)
+    {
+            await Groups.AddToGroupAsync(connectionId, groupName); // groupName'de verilen isimde grup yoksa grubu oluşturur ve connectionId'yi gruba ekler, ilgili grup varsa sadece connectionId'yi gruba ekler
+    }
+````
+
+- Herhangi bir group'taki client'larda bildiride bulunmak için:
+
+````csharp
+    public async Task SendMessageAsync(string message, string groupName)
+    {
+        await Clients.Groups(groupName).receiveGroupMessage(message); //verilen isme sahip gruptaki client'larda receiveGroupMessage fonksiyonunu tetikleriz ve mesajımızı parametre olarak göndeririz.
+    }
+````
