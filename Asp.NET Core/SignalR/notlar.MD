@@ -128,3 +128,48 @@ async function startConnection() {
       await Clients.All.SendAsync("userLeft", ClientIds);
   }
 ````
+
+## IHubContext
+
+- Tabii ki her işlemi tek bir sınıf aracılığıyla yönetemeyiz ve bu Hub olan sınıfımızın instance'larını oluşturarak, Hub özelliğini kullanamıyoruz. Lakin IHubContext adlı interface'i IoC'den istediğimiz Hub sınıfınızı generic olarak vererek çağırabiliyoruz ve istediğimiz farklı sınıflar içerisinde Hub'ımızı kullanabiliyoruz.
+
+- Örnek:
+
+````csharp
+    public class MyBusiness
+    {
+        readonly IHubContext<MyHub> hubContext; // MyHub adlı Hub kalıtımı olan sınıfımızı generic olarak verdik
+        public MyBusiness(IHubContext<MyHub> hubContext)
+        {
+            this.hubContext = hubContext; // IoC containerın, gerekli instance'ı vermesini sağladık.
+        }
+        public async Task SendMessageAsync(string message)
+        {
+            await hubContext.Clients.All.SendAsync("receiveMessage", message); // sadece hubContext ekleyerek aynı metodu Hub sınıfının dışında yazabildik
+        }
+    }
+````
+
+````csharp
+builder.Services.AddTransient<MyBusiness>(); // IoC'ye MyBusiness sınıfımızı ilgili bağımlılıklar çözülebilmesi için verdik ve gerektiğinde IoC'den kendisini de alabileceğiz.
+````
+
+
+````csharp
+public class HomeController : Controller
+    {
+        readonly MyBusiness myBusiness;
+
+        public HomeController(MyBusiness myBusiness)
+        {
+            this.myBusiness = myBusiness; // Örneğin ilgili sınıfımızı controller'da çağırabildik.
+        }
+
+        [HttpGet("{message}")]
+        public async Task<IActionResult> Index(string message)
+        {
+            await myBusiness.SendMessageAsync(message);
+            return Ok();
+        }
+    }
+````
