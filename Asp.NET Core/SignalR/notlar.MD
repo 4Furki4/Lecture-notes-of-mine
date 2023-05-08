@@ -96,3 +96,35 @@ async function startConnection() {
     }
   }
 ````
+
+## Hub'daki Eventler
+
+- Client'lardaki bağlantı değişimlerini tabii ki Hub'da yakalayamazsak olmazdı, bunun için iki tane method'u override ederek kullanabiliriz.
+
+### OnConnectedAsync
+
+- Herhangi bir client Hub'a bağlandğında fırlatılan event'tir.
+
+- Ayrıca Context.ConnectionId ile, bağlanan client'ın Id'sini yakalayabiliriz.
+
+- Örnek:
+````csharp
+  public override async Task OnConnectedAsync()
+  {
+      ClientIds.Add(Context.ConnectionId);
+      await Clients.All.SendAsync("userJoined", ClientIds);
+  }
+````
+
+### OnDisconnectedAsync
+
+- OnConnectedAsync'in tam tersidir, bir client'ın bağlantısı koptuğunda fırlatılan event'tir.
+
+- Örnek:
+````csharp
+  public override async Task OnDisconnectedAsync(Exception? exception)
+  {
+      ClientIds.Remove(Context.ConnectionId);
+      await Clients.All.SendAsync("userLeft", ClientIds);
+  }
+````
