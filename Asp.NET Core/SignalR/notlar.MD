@@ -229,7 +229,7 @@ public class HomeController : Controller
 
 - Server'a bağlı olan client'lardan belirlilenlen clientId'lere sahip olan client'lara bildiride bulunmaya yarar.
 
-### Group
+## Group
 
 - Belirtilen grubtaki tüm clientlara bildiride bulunmaya yarar.
 
@@ -251,3 +251,15 @@ public class HomeController : Controller
         await Clients.Groups(groupName).receiveGroupMessage(message); //verilen isme sahip gruptaki client'larda receiveGroupMessage fonksiyonunu tetikleriz ve mesajımızı parametre olarak göndeririz.
     }
 ````
+
+### GroupExcept
+
+- Bir ek parametreyle, grupta dışlamak istediğimiz client'ları belirlememizi sağlar.
+
+### Groups
+
+- Birden çok grubtaki clientlarda bildiride bulunmamıza sağlayan metottur.
+
+### OthersInGroup
+
+- Bildiride bulunan client haricinde gruptaki diğer tüm client'lara bildiride bulunmayı sağlayan metottur.
