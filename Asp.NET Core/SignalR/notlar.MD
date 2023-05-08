@@ -173,3 +173,20 @@ public class HomeController : Controller
         }
     }
 ````
+
+## Strongly Typed Hubs
+
+- ``SendAsync`` metodunu kullanırken client'ta çağırılacak fonksiyon isimlerini string olarak verdiğimizde debugging kısmında bunları kontrol edemiyoruz.
+- Buna çözüm olarak bir interface tanımlıyabiliriz ve bu interface içerisindeki metot imzalarını, fonksiyon isimleri için kullanabiliyoruz.
+
+````csharp
+  public interface IMyHub // Örnek bir strongly typed hubs için interface
+  {
+      Task userJoined(List<string> ClientIds);
+      Task userLeft(List<string> ClientIds);
+  }
+````
+
+- Bu interface'i ``MyHub : Hub<IMyHub>`` olarak vermemiz gerekiyor.
+
+- Bu şekilde yapınca `Clients.All.` yapınca imzasını tanımladığımız metotlar gelecektir ve client tarafında interface'de tanımladığımız isimdeki fonksiyonlar çağrılacaktır.
