@@ -838,3 +838,11 @@ modal.addEventListener("click", e => {
 - There is a special method: ``method:"dialog"` which prevents losing the data when we close dialog.
 
 - Or ``formmethod`` can be used in submit button which is the same.
+
+## Dark Mode WO CSS
+
+- color-scheme allows us to change browser color scheme, controller by user agent.
+
+- can be used in HTML or ``:root`` to changed whole page's color scheme or in indivisual elements
+
+- it has 3 options: normal, light and DARK <3
