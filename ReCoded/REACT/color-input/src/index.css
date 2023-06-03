@@ -1,0 +1,47 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: dark;
+  --radius: 10px;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  height: 100dvh;
+  justify-content: center;
+  align-items: center;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+.container {
+  width: 400px;
+  height: 600px;
+  border: 2px solid white;
+  text-align: center;
+  display: grid;
+  place-content: center;
+  border-radius: var(--radius);
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+input {
+  width: 400px;
+  padding: 1rem;
+  border-radius: var(--radius);
+
+}
