@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 import Content from "./components/Content";
 import { Item } from "./models/Content.props";
 import Header from "./components/layout/Header";
@@ -7,24 +7,23 @@ import AddItem from "./components/AddItem";
 import SearchItem from "./components/SearchItem";
 
 export default function App() {
-  const [items, setItems] = useState(JSON.parse(localStorage.getItem('shoppingList') || '[]'))
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem('shoppingList') ?? '[]'))
   const [newItem, setNewItem] = useState('')
   const [search, setSearch] = useState('')
-  function setAndSaveItemsToLS(newItems: Item[]) {
-    setItems(newItems)
-    localStorage.setItem('shoppingList', JSON.stringify(newItems))
-  }
+  useEffect(() => {
+    localStorage.setItem('shoppingList', JSON.stringify(items))
+  }, [items])
   function handleClick(id: number) {
     return () => {
       const newItems = items.map((item: Item) => item.id === id ? { ...item, checked: !item.checked } : item)
-      setAndSaveItemsToLS(newItems)
+      setItems(newItems)
     }
 
   }
   function deleteItem(id: number) {
     return () => {
       const newItems = items.filter((item: Item) => item.id !== id)
-      setAndSaveItemsToLS(newItems)
+      setItems(newItems)
     }
   }
   function addNewItem(itemName: string) {
@@ -35,7 +34,7 @@ export default function App() {
       item: itemName
     }
     const newListofItems = [...items, itemToAdd]
-    setAndSaveItemsToLS(newListofItems)
+    setItems(newListofItems)
 
   }
 
