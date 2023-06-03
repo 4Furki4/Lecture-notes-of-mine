@@ -2,6 +2,6 @@ import { Item } from "./Content.props";
 
 export default interface ListItemProps {
     item: Item
-    handleClick: (id: number) => () => void,
+    handleCheck: (id: number) => () => void,
     deleteItem: (id: number) => () => void
 }
