@@ -94,4 +94,8 @@ footer .item-count {
 .search-form input {
   width: 100%;
   padding: 0.5rem;
+}
+
+.error {
+  color: red;
 }/*# sourceMappingURL=index.css.map */

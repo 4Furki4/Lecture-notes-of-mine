@@ -1,6 +1,6 @@
 export default interface ContentProps {
     items: Item[]
-    handleClick: (id: number) => () => void,
+    handleCheck: (id: number) => () => void,
     deleteItem: (id: number) => () => void
 }
 

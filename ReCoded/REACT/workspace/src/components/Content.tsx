@@ -1,9 +1,9 @@
 import ContentProps from '../models/Content.props'
 import { ListItem } from './List/ListItem'
-export default function Content({ items, deleteItem, handleClick }: ContentProps) {
+export default function Content({ items, deleteItem, handleCheck }: ContentProps) {
 
     return (
-        <main className='container'>
+        <>
             {items.length
                 ?
                 (
@@ -11,7 +11,7 @@ export default function Content({ items, deleteItem, handleClick }: ContentProps
                         {items.map(item =>
                             <ListItem item={item}
                                 deleteItem={deleteItem}
-                                handleClick={handleClick}
+                                handleCheck={handleCheck}
                                 key={item.id}
                             />)}
                     </ul>
@@ -21,6 +21,6 @@ export default function Content({ items, deleteItem, handleClick }: ContentProps
                     <p>No items found!</p>
                 )
             }
-        </main>
+        </>
     )
 }
