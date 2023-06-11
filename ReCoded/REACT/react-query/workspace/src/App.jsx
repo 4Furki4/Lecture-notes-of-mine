@@ -5,6 +5,7 @@ import PostsList1 from './PostsList1'
 import PostsList2 from './PostsList2'
 import { getPost } from '../api/posts'
 import Post from './Post'
+import CreatePost from './CreatePost'
 const POSTS = [
   { id: 1, title: 'Post 1' },
   { id: 2, title: 'Post 2' },
@@ -62,6 +63,9 @@ function App() {
         onClick={() => setCurrentPage(<Post id={1} />)}
       >
         First Post
+      </button>
+      <button onClick={() => setCurrentPage(<CreatePost setCurrentPage={setCurrentPage} />)}>
+        Create Post
       </button>
       {currentPage}
     </>
