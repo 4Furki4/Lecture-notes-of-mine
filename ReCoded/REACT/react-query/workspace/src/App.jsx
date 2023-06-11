@@ -6,6 +6,7 @@ import PostsList2 from './PostsList2'
 import { getPost } from '../api/posts'
 import Post from './Post'
 import CreatePost from './CreatePost'
+import PageListPaginated from './PageListPaginated'
 const POSTS = [
   { id: 1, title: 'Post 1' },
   { id: 2, title: 'Post 2' },
@@ -67,6 +68,7 @@ function App() {
       <button onClick={() => setCurrentPage(<CreatePost setCurrentPage={setCurrentPage} />)}>
         Create Post
       </button>
+      <button onClick={() => setCurrentPage(<PageListPaginated />)}>Page List Paginated</button>
       {currentPage}
     </>
   )
