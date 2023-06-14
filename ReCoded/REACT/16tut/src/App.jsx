@@ -9,6 +9,7 @@ import Layout from './Layout';
 import { format, set } from 'date-fns'
 import api from './api/post'
 import useWindowSize from './hooks/useWindowSize';
+import useAxiosFetch from './hooks/useAxiosFetch';
 function App() {
   const [posts, setPosts] = useState([]);
   const [search, setSearch] = useState('');
@@ -17,18 +18,25 @@ function App() {
   const [postBody, setPostBody] = useState('');
   const navigate = useNavigate();
   const { width } = useWindowSize();
+
+  const { data, loading, error } = useAxiosFetch(
+    "http://localhost:3000/posts"
+  )
+  // useEffect(() => {
+  //   async function getPosts() {
+  //     try {
+  //       const res = await api.get('/posts')
+  //       setPosts(res.data)
+  //     }
+  //     catch (err) {
+  //       console.log(err)
+  //     }
+  //   }
+  //   getPosts()
+  // }, [])
   useEffect(() => {
-    async function getPosts() {
-      try {
-        const res = await api.get('/posts')
-        setPosts(res.data)
-      }
-      catch (err) {
-        console.log(err)
-      }
-    }
-    getPosts()
-  }, [])
+    setPosts(data)
+  }, [data])
 
   useEffect(() => {
     const filteredResults = posts.filter(post => post.title.toLowerCase().includes(search.toLowerCase()) || post.body.toLowerCase().includes(search.toLowerCase()))
