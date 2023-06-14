@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import Layout from './Layout';
 import { format, set } from 'date-fns'
 import api from './api/post'
+import useWindowSize from './hooks/useWindowSize';
 function App() {
   const [posts, setPosts] = useState([]);
   const [search, setSearch] = useState('');
@@ -15,7 +16,7 @@ function App() {
   const [postTitle, setPostTitle] = useState('');
   const [postBody, setPostBody] = useState('');
   const navigate = useNavigate();
-
+  const { width } = useWindowSize();
   useEffect(() => {
     async function getPosts() {
       try {
@@ -65,7 +66,7 @@ function App() {
   return (
 
     <Routes>
-      <Route path="/" element={<Layout search={search} setSearch={setSearch} />}>
+      <Route path="/" element={<Layout search={search} setSearch={setSearch} width={width} />}>
         <Route index element={<Home posts={searchResults} />} />
         <Route path='post'>
           <Route index element={<NewPost handleSubmit={handleSubmit} postTitle={postTitle} setPostTitle={setPostTitle} postBody={postBody} setPostBody={setPostBody} />} />
