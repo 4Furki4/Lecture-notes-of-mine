@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react';
 import Layout from './Layout';
 import { format, set } from 'date-fns'
 import api from './api/post'
+import useWindowSize from './hooks/useWindowSize';
+import useAxiosFetch from './hooks/useAxiosFetch';
 function App() {
   const [posts, setPosts] = useState([]);
   const [search, setSearch] = useState('');
@@ -15,19 +17,26 @@ function App() {
   const [postTitle, setPostTitle] = useState('');
   const [postBody, setPostBody] = useState('');
   const navigate = useNavigate();
+  const { width } = useWindowSize();
 
+  const { data, loading, error } = useAxiosFetch(
+    "http://localhost:3000/posts"
+  )
+  // useEffect(() => {
+  //   async function getPosts() {
+  //     try {
+  //       const res = await api.get('/posts')
+  //       setPosts(res.data)
+  //     }
+  //     catch (err) {
+  //       console.log(err)
+  //     }
+  //   }
+  //   getPosts()
+  // }, [])
   useEffect(() => {
-    async function getPosts() {
-      try {
-        const res = await api.get('/posts')
-        setPosts(res.data)
-      }
-      catch (err) {
-        console.log(err)
-      }
-    }
-    getPosts()
-  }, [])
+    setPosts(data)
+  }, [data])
 
   useEffect(() => {
     const filteredResults = posts.filter(post => post.title.toLowerCase().includes(search.toLowerCase()) || post.body.toLowerCase().includes(search.toLowerCase()))
@@ -65,7 +74,7 @@ function App() {
   return (
 
     <Routes>
-      <Route path="/" element={<Layout search={search} setSearch={setSearch} />}>
+      <Route path="/" element={<Layout search={search} setSearch={setSearch} width={width} />}>
         <Route index element={<Home posts={searchResults} />} />
         <Route path='post'>
           <Route index element={<NewPost handleSubmit={handleSubmit} postTitle={postTitle} setPostTitle={setPostTitle} postBody={postBody} setPostBody={setPostBody} />} />
