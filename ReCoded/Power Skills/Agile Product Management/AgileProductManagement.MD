@@ -46,22 +46,21 @@
 ### Scrum
 
 Encourages teams to learn thru experiences, self organize while working a problem and reflect the win and loses to continuously improve. \
-![Scrum](./pics/scrum.png)
-
+![Scrum](../pics/scrum.png)
 
 ### Kanban Board
 
 - It's a framework to implement agile development. requires full trasparency of work and realtime communication.
 - work states are visually represented on Kanban board allowing team members to see every piece of work and its current state.
-![Kanban](./pics/kanban-board.png)
+  ![Kanban](../pics/kanban-board.png)
 
 ### Extreme Programming
 
 - It emphasizes teamwork and says that the best way to build software is to have a team of people consists managers, customers and developers working together on the same project.
-![Extreme Programming onli visible in light mode](./pics/extreme-programming.png)
+  ![Extreme Programming onli visible in light mode](../pics/extreme-programming.png)
 
 ### DevOps
 
 - works to automate and integrate the process of software development and IT teams so that they can build, test and release software in faster and more sustainable way.
 
-![DevOps](./pics/devops.png)
+![DevOps](../pics/devops.png)
