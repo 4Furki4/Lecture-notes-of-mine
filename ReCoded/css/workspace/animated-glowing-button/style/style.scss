@@ -1,0 +1,97 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+body {
+  display: grid;
+  place-content: center;
+  gap: 2rem;
+  min-height: 100vh;
+  background-image: conic-gradient(
+    at 125% 50%,
+    #b78cf7,
+    #ff7c94,
+    #ffcf0d,
+    #ff7c94,
+    #b78cf7
+  );
+  font-family: system-ui;
+}
+.button {
+  cursor: pointer;
+  font-size: 2rem;
+  font-family: inherit;
+  font-weight: 700;
+  color: hsl(320, 40%, 40%);
+  background-color: hsl(349 100% 95%);
+  padding: 0.75rem 1.25rem;
+  border: 0;
+  border-radius: 2.5rem;
+}
+
+.glow-effect {
+  --container-offset: 100px;
+  --glow-line-color: #fff;
+  --glow-blur-color: #fff;
+  --glow-line-thickness: 3px;
+  --glow-line-size: 20px;
+  --animation-speed: 1200ms;
+  --glow-line-length: 20px;
+  position: relative;
+}
+
+.glow-container {
+  opacity: 0;
+  animation: fadeOut var(--animation-speed) alternate infinite;
+  pointer-events: none;
+  inset: calc(var(--container-offset) / -2);
+  width: calc(100% + var(--container-offset));
+  height: calc(100% + var(--container-offset));
+  position: absolute;
+  //   outline: 3px solid blue;
+}
+.glow-blur,
+.glow-line {
+  x: calc(var(--container-offset) / 2);
+  y: calc(var(--container-offset) / 2);
+  width: calc(100% - var(--container-offset));
+  height: calc(100% - var(--container-offset));
+  fill: transparent;
+  stroke: black;
+  stroke-width: 5px;
+  stroke-dasharray: var(--glow-line-length) calc(50px - var(--glow-line-length));
+}
+
+.glow-effect:is(:hover, :focus) :is(.glow-blur, .glow-line) {
+  stroke-dashoffset: -65px;
+  transition: stroke-dashoffset var(--animation-speed);
+}
+
+.glow-line {
+  stroke: var(--glow-line-color);
+  stroke-width: var(--glow-line-thickness);
+}
+.glow-blur {
+  filter: blur(var(--glow-line-size));
+  stroke: var(--glow-blur-color);
+  stroke-width: var(--glow-line-size);
+}
+
+.glow-effect:is(:hover, :focus) .glow-container {
+  animation: glow-visibility var(--animation-speed) ease-in;
+}
+
+@keyframes glow-visibility {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  25%,
+  75% {
+    opacity: 1;
+  }
+}
+.glow-effect[data-glow-animation="false"] {
+  --glow-line-length: 50px;
+}
