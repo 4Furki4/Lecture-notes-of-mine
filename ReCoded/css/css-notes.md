@@ -187,7 +187,6 @@ a:visited {
 
 - It overrides the cross axis position of the element
 
-
 ### Flex Basis
 
 - Each flex item has flex-basis value which is auto by default.
@@ -198,6 +197,7 @@ a:visited {
 - the reason why this happens is hidden in main axis! when we set our direction to column, main axis become the y axis. So, our height is being set to 200px and our width adapts itself!
 
 - __Note that max width and height will override flex-basis value in both situation. min width and height will override all of them__
+
 ---
 
 ## Position
@@ -713,7 +713,6 @@ __Most important mindset you need to take in yourself is preparing mobile design
   - If you need more space, use padding!
 - But one thing to note is that images in css are not responsive by default.
 
-
 ### Width
 
 - Avoid using static values like px. Instead, use ratios.
@@ -721,10 +720,10 @@ __Most important mindset you need to take in yourself is preparing mobile design
 
 - to avoid texts that streches all the way, you can use max-width
 
-
 ### Height
 
 - You can use min-height to make sure that your element has a minimum height. If the content is bigger than the min-height, it will be bigger.
+
 ### Flex
 
 - We need to use a container to be able to use flex items which are the direct children of this flex container.
@@ -735,15 +734,14 @@ __Most important mindset you need to take in yourself is preparing mobile design
 
 #### Flex images
 
-- If your img is not a flex item, it won't shrink. 
+- If your img is not a flex item, it won't shrink.
 - You can either make it flex item or set all img max-width to 100% which avoids them to be bigger than their original size.
-
 
 ## Problem With Percentages
 
 ### Grid Layout
 
-- When we want to set grid columns by percentage values like ``grid-template-columns: 50% 50%;``, It will cause issues once gap or any space value is used. 
+- When we want to set grid columns by percentage values like ``grid-template-columns: 50% 50%;``, It will cause issues once gap or any space value is used.
 - You can combine percentages or use fr values in which cases.
 
 - Kevin showed us a real world example that suggests letting browser to decide sizes. He first used ``flex-basis:33.333%`` which causes issues when we need more or less content in the container. He set the basis to 100% so that browser knows they want to extend themself as much as possible.
@@ -759,6 +757,7 @@ __Most important mindset you need to take in yourself is preparing mobile design
 ### How to use it
 
 - add a dialog and button element into your HTML document. We will open our dialog using the log out button.
+
 ````html
 <button class="btn btn--log-out">
         LOG OUT
@@ -816,8 +815,10 @@ __Most important mindset you need to take in yourself is preparing mobile design
 
 - dialog element has no built in feature to close itself by clicking outside of the dialog.
 
-- This code will provide the functionality. 
->https://blog.webdevsimplified.com/2023-04/html-dialog/
+- This code will provide the functionality.
+
+><https://blog.webdevsimplified.com/2023-04/html-dialog/>
+
 ````js
 
 modal.addEventListener("click", e => {
@@ -833,6 +834,7 @@ modal.addEventListener("click", e => {
 })
 
 ````
+
 ### Forms in dialogs
 
 - There is a special method: ``method:"dialog"` which prevents losing the data when we close dialog.
@@ -846,3 +848,7 @@ modal.addEventListener("click", e => {
 - can be used in HTML or ``:root`` to changed whole page's color scheme or in indivisual elements
 
 - it has 3 options: normal, light and DARK <3
+
+## 3D CSS
+
+### perspective

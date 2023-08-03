@@ -1,0 +1,70 @@
+:root {
+  --pink: hsl(338, 70%, 55%);
+  --teal: hsl(183, 70%, 62%);
+  --white: hsl(334, 7%, 95%);
+  --rotateY: 0deg;
+  --rotateX: 0deg;
+}
+
+body {
+  background: hsl(224, 32%, 12%);
+  background-image: conic-gradient(from 0deg at 50% 50%, blue, purple, purple, blue);
+  background-blend-mode: multiply;
+  min-block-size: 100dvh;
+  display: grid;
+  place-items: center;
+  margin: 0;
+}
+
+pre {
+  --selector: var(--pink);
+  --property: var(--teal);
+  --punctuation: var(--white);
+  --undefined: var(--white);
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--undefined);
+  background: hsl(222, 45%, 7%);
+  padding: 2rem;
+  border-radius: 1rem;
+  transform-style: preserve-3d;
+  transform: perspective(5000px) rotateY(var(--rotateY)) rotateX(var(--rotateX));
+  position: relative;
+}
+pre::after, pre::before {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+}
+pre::after {
+  inset: -1rem;
+  background: linear-gradient(-45deg, red, blue);
+  transform: translateZ(-50px);
+}
+pre::before {
+  inset: 0.75rem;
+  background: black;
+  filter: blur(15px);
+  transform: translateZ(-49px);
+  opacity: 0.5;
+}
+
+pre > * {
+  text-shadow: 0 0 0.3em currentColor;
+}
+
+.selector {
+  color: var(--selector);
+}
+
+.property {
+  color: var(--property);
+}
+
+.punctuation {
+  color: var(--punctuation);
+}
+
+.property + .punctuation {
+  color: var(--property);
+}/*# sourceMappingURL=style.css.map */

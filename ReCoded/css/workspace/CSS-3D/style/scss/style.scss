@@ -1,0 +1,148 @@
+:root {
+  --boxColor: #0ff7;
+  --rotateSpeed: 10s;
+  --balanceSpeed: 1.5s;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 75px;
+  perspective: 20em;
+  perspective-origin: 50% calc(50% - 5em);
+}
+
+.scene {
+  position: relative;
+  // -webkit-perspective: 10em;
+
+  transform-style: preserve-3d;
+  animation: sceneRotate var(--rotateSpeed) infinite linear;
+}
+
+.ball {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: lightblue;
+  transform-style: inherit;
+  position: absolute;
+  bottom: 1em;
+  left: -0.5em;
+  background-image: radial-gradient(circle at top, lightblue, 40%, #000);
+  animation:
+    ballBounce var(--balanceSpeed) infinite ease-out,
+    sceneRotate var(--rotateSpeed) infinite linear reverse;
+}
+@keyframes sceneRotate {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+@keyframes ballBounce {
+  0%,
+  100% {
+    bottom: 0.5em;
+  }
+  50% {
+    bottom: 3em;
+    animation-timing-function: ease-in;
+  }
+}
+.cube {
+  transform-style: preserve-3d;
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  bottom: -1em;
+  left: -1em;
+
+  animation: cubeHeight var(--balanceSpeed) infinite linear;
+  @keyframes cubeHeight {
+    0%,
+    100% {
+      height: 1.5em;
+    }
+    8%,
+    93% {
+      height: 2em;
+    }
+  }
+  .front,
+  .back,
+  .left,
+  .right {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--boxColor);
+    box-shadow: 0 0 0.5em #000a inset;
+  }
+  .front {
+    transform: translateZ(1em);
+  }
+  .right {
+    transform: rotateY(90deg) translateZ(1em);
+  }
+  .back {
+    transform: rotateY(180deg) translateZ(1em);
+  }
+  .left {
+    transform: rotateY(270deg) translateZ(1em);
+  }
+  .top {
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    background-color: var(--boxColor);
+    transform: translateY(-50%) rotateX(90deg);
+    box-shadow: 0 0 0.1em #000a inset;
+    & .ball-shadow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(#0007, #0000 50%);
+      animation: ballShadow var(--balanceSpeed) infinite ease-out;
+
+      @keyframes ballShadow {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(0.5);
+          animation-timing-function: ease-in;
+        }
+      }
+    }
+  }
+  .bottom {
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    background-color: #fff;
+    transform: translateY(50%) rotateX(90deg);
+    box-shadow: 0 0 1em #000a;
+  }
+}
+
+.floor {
+  width: 10em;
+  height: 10em;
+  background-image: radial-gradient(#0000, #000 75%),
+    repeating-conic-gradient(from 45deg, #111 0deg 90deg, #222 90deg 180deg);
+  background-size:
+    100%,
+    1em 1em;
+  position: absolute;
+  top: 1em;
+  transform: translate(-50%, -50%) rotateX(90deg);
+  transform-style: inherit;
+}
