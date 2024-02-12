@@ -47,6 +47,8 @@
 
 - It's not important that where the component is in the DOM, the important thing is that where the component is written. So, you can pull a component up and pass it as a children to another component to prevent unnecessary renders as oppose to writing that component directly in that another component. For instance, you can pull a middle component up and pass it as a children to the parent component to prevent unnecessary renders.
 
+- Once you have a list of items and you pull the content up, it will cause the parent rerender and children components gets rerendered. For example, once you remove an element from an array of elements, the array gets changed and all children components get rerendered. Make sure you don't pull the content up when unnecessary.
+
 ### Memoization
 
 - You can use the useMemo hook to memoize the value of a function. This way, the function will only be called when the dependencies change. But be careful, memoization can be a double-edged sword. It can be a performance boost but it can also be a performance hit. First, use the technique above to prevent unnecessary renders and then use memoization if you need to. The problem with memoization is that when props are passed as reference, it will always change and the memoized function will always be called. So, be careful with memoization.
@@ -59,3 +61,7 @@
 
 - Instead of passing functions returned by useCallback to a component, you can use useReducer to create a dispatch function. This way, the components will get the same dispatch function and it will not be recreated on every render.
   - Since useState is a wrapper around useReducer, you can pass the useState setter function and do your logic in the children components as well.
+
+### ContextAPI
+
+- the problem with using contextAPI is that you can instantly lose all the performance gain above if you provide your context with an object. The reason is the same: objects are passed by reference and each time your list changes, the static dispatch will change as well. Or if your context provider covers more than one state, re-rendering one property will cause re-rendering for other property(ies). So, make sure you have multiple context and use the Single Responsibility technique for contextAPI actually.
