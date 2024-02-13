@@ -65,3 +65,13 @@
 ### ContextAPI
 
 - the problem with using contextAPI is that you can instantly lose all the performance gain above if you provide your context with an object. The reason is the same: objects are passed by reference and each time your list changes, the static dispatch will change as well. Or if your context provider covers more than one state, re-rendering one property will cause re-rendering for other property(ies). So, make sure you have multiple context and use the Single Responsibility technique for contextAPI actually.
+
+### useTransitions
+
+- when you call this hook, it returns a bool value and a function that takes callbackFunction as argument.
+- You can put the logic inside the callback function that useTransitions hook returns and have the logic deferred! So that expensive work can be done in the background while the important task like showing user input on the screen can be done quickly! And you can also use that boolean value which shows the callbackFunction is running to show if the work is being done or it's done.
+
+
+### useDeferredValue
+
+- It wraps the value and returns a deferred value that can be used to defer the rendering of the value. It's useful for deferring the rendering of the value until the user is done interacting with the UI.
